@@ -1,0 +1,69 @@
+name: Build APK (الملازم)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Collect the app files into www/
+        run: |
+          mkdir -p www
+          cp index.html books.json manifest.webmanifest sw.js www/
+          cp -r icons vendor books www/
+
+      - name: Create the Android project (Capacitor)
+        run: |
+          npm init -y >/dev/null
+          npm install @capacitor/core@7.4.0 @capacitor/cli@7.4.0 @capacitor/android@7.4.0
+          cat > capacitor.config.json <<'EOF'
+          {
+            "appId": "com.almalazim.app",
+            "appName": "الملازم",
+            "webDir": "www",
+            "android": { "backgroundColor": "#1b0fb4" }
+          }
+          EOF
+          npx cap add android
+
+      - name: Use the pear icon as the app icon
+        run: |
+          RES=android/app/src/main/res
+          rm -rf $RES/mipmap-anydpi-v26
+          for pair in mdpi:48 hdpi:72 xhdpi:96 xxhdpi:144 xxxhdpi:192; do
+            d=${pair%%:*}; s=${pair##*:}
+            mkdir -p $RES/mipmap-$d
+            convert icons/icon-512.png -resize ${s}x${s} $RES/mipmap-$d/ic_launcher.png
+            convert icons/icon-512.png -resize ${s}x${s} $RES/mipmap-$d/ic_launcher_round.png
+            rm -f $RES/mipmap-$d/ic_launcher_foreground.png
+          done
+
+      - name: Build the APK
+        run: |
+          npx cap sync android
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+
+      - name: Save the APK for download
+        uses: actions/upload-artifact@v4
+        with:
+          name: almalazim-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
