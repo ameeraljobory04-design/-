@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>الملازم</title>
+<meta name="description" content="الملازم — كل ملازم الدراسة بمكان واحد">
+<meta name="theme-color" content="#1b0fb4">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="الملازم">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: phone-first app column. Royal-blue header over a white rounded sheet of soft tiles; floating light-blue action button in a notched blue bottom bar. */
+:root{
+  --bg:#e4e9fb; --app:#f3f5fd; --surface:#ffffff; --line:#e3e7f5;
+  --brand:#1b0fb4; --brand-2:#2d22d6; --fg:#1f2550; --muted:#9097b8;
+  --sky:#5bb8f5; --green:#3cb43a; --price:#3fae6a; --sun:#ffc24a; --pink:#ff8fb1;
+  --shadow:0 6px 18px rgba(52,64,160,.10); --reader:#d9dff2; --shadow-lg:0 20px 50px rgba(52,64,160,.18);
+  --f:"Readex Pro","Segoe UI",Tahoma,system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b0e26; --app:#121638; --surface:#1b2050; --line:#272d63;
+  --brand:#2414c9; --brand-2:#3a2fe3; --fg:#e8eaff; --muted:#8e94c4;
+  --sky:#5bb8f5; --green:#3cb43a; --price:#5cc787; --sun:#ffc24a; --pink:#ff8fb1;
+  --shadow:0 6px 18px rgba(0,0,0,.35); --reader:#080a1d; --shadow-lg:0 20px 50px rgba(0,0,0,.5); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b0e26; --app:#121638; --surface:#1b2050; --line:#272d63;
+  --brand:#2414c9; --brand-2:#3a2fe3; --fg:#e8eaff; --muted:#8e94c4;
+  --sky:#5bb8f5; --green:#3cb43a; --price:#5cc787; --sun:#ffc24a; --pink:#ff8fb1;
+  --shadow:0 6px 18px rgba(0,0,0,.35); --reader:#080a1d; --shadow-lg:0 20px 50px rgba(0,0,0,.5); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f);font-size:14px;line-height:1.55;font-variant-numeric:tabular-nums}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
+h1,h2,h3{margin:0;font-weight:600;text-wrap:balance;line-height:1.3}
+.ltr{direction:ltr;unicode-bidi:isolate}
+
+.shell{padding-block:0;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px));display:flex;justify-content:center}
+.app{width:100%;max-width:480px;min-height:100vh;background:var(--app);position:relative;display:flex;flex-direction:column;overflow:clip}
+@media (min-width:560px){
+  .shell{padding-block:28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .app{min-height:calc(100vh - 56px);border-radius:34px;box-shadow:var(--shadow-lg)}
+}
+.screen{flex:1;display:flex;flex-direction:column;padding-bottom:44px}
+
+/* header */
+.hero{background:var(--brand);color:#fff;padding:22px 22px 70px;position:relative;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;inset:0;pointer-events:none}
+.hero::before{background:linear-gradient(115deg,transparent 52%,rgba(255,255,255,.07) 52%,rgba(255,255,255,.07) 74%,transparent 74%)}
+.hero::after{background:linear-gradient(70deg,transparent 60%,rgba(255,255,255,.05) 60%)}
+.hero .bar{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+.burger{display:grid;gap:4px;width:22px;padding:6px 0}
+.burger i{display:block;height:2px;background:#fff;border-radius:2px}
+.burger i:nth-child(2){width:70%}.burger i:nth-child(3){width:45%}
+.avatar{width:40px;height:40px;border-radius:12px;background:#fff;display:grid;place-items:center;overflow:hidden}
+.avatar svg{width:30px;height:36px}
+.hero h1{font-size:24px;font-weight:600;margin-top:26px;position:relative;z-index:1}
+.hero p{margin:2px 0 0;font-size:12px;opacity:.75;font-weight:300;position:relative;z-index:1}
+.sheet{background:var(--app);border-radius:28px 28px 0 0;margin-top:-44px;position:relative;z-index:2;padding:22px 20px 10px;flex:1}
+
+/* tiles */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.tile{background:var(--surface);border-radius:18px;box-shadow:var(--shadow);padding:16px 10px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;min-width:0;transition:transform .15s}
+.tile:hover{transform:translateY(-2px)}
+.tile .ic{width:76px;height:64px;display:grid;place-items:center}
+.tile .ic svg{width:100%;height:100%}
+.tile .lbl{font-size:12.5px;color:var(--muted);line-height:1.35}
+.tile .lbl b{display:block;color:var(--fg);font-weight:500;font-size:13px}
+.tile .mini{height:4px;width:70%;background:var(--line);border-radius:9px;overflow:hidden}
+.tile .mini i{display:block;height:100%;background:var(--price);border-radius:9px}
+.section-t{font-size:12px;color:var(--muted);margin:22px 4px 10px;font-weight:500}
+
+/* top bar (list screens) */
+.topbar{display:flex;align-items:center;gap:12px;padding:20px 20px 8px}
+.topbar .search{flex:1;display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px}
+.topbar input{flex:1;border:0;background:transparent;min-width:0;text-align:center;color:var(--fg)}
+.topbar input::placeholder{color:var(--muted);opacity:.8}
+.iconbtn{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;color:var(--fg);position:relative}
+.iconbtn svg{width:22px;height:22px}
+.iconbtn .dot{position:absolute;top:7px;inset-inline-end:7px;width:7px;height:7px;border-radius:50%;background:#ff4d6d}
+.summary{margin:6px 20px 4px;display:flex;align-items:center;gap:12px}
+.summary h2{font-size:18px}
+.summary .sub{font-size:12px;color:var(--muted)}
+
+/* list cards */
+.list{display:grid;gap:14px;padding:12px 20px}
+.card{background:var(--surface);border-radius:16px;box-shadow:var(--shadow);padding:12px 14px;display:flex;align-items:center;gap:14px;text-align:start;width:100%}
+.card .face{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:600;color:#fff;font-size:15px;position:relative}
+.card .face::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--line)}
+.card .txt{flex:1;min-width:0}
+.card .txt b{display:block;font-weight:500;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .price{color:var(--price);font-weight:600;font-size:14px}
+.card .price small{color:var(--muted);font-weight:300;font-size:11px;font-style:italic;margin-inline-start:4px}
+.medal{width:34px;height:34px;flex:none;display:grid;place-items:center;border-radius:50%}
+.medal svg{width:30px;height:30px}
+.medal.off{border:2px dashed var(--line)}
+.medal.off svg{display:none}
+
+/* reader */
+.app.wide{max-width:920px}
+.greenbar{background:var(--green);color:#fff;border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 20px rgba(60,180,58,.28)}
+.greenbar .t{flex:1;text-align:center;font-weight:500;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.greenbar button{color:#fff;width:30px;height:30px;display:grid;place-items:center;border-radius:9px;flex:none}
+.greenbar button:hover{background:rgba(255,255,255,.15)}
+.greenbar svg{width:20px;height:20px}
+.readtop{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--app);padding:14px 14px 10px;display:grid;gap:10px;box-shadow:0 8px 16px -12px rgba(30,40,120,.35)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--app)}
+.rtools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{background:var(--surface);border-radius:11px;box-shadow:var(--shadow);padding:6px 10px;display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--fg);min-height:34px}
+.pill.yellow{background:var(--sun);color:#fff;font-weight:500}
+.pill.yellow svg{transition:transform .2s}.pill.yellow.open svg{transform:rotate(180deg)}
+.pill input{width:36px;border:0;background:transparent;text-align:center;font-weight:600;color:var(--fg);padding:0}
+.pill .zb{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;color:var(--brand);font-weight:700;font-size:16px;line-height:1}
+.pill .zb:hover{background:var(--app)}
+.rtools .grow{flex:1}
+.lecs{display:grid;gap:8px;padding:12px;background:var(--sun);border-radius:16px;max-height:45vh;overflow:auto}
+.lecs button{background:rgba(255,255,255,.92);color:#5b4300;border-radius:12px;padding:9px 12px;display:flex;justify-content:space-between;gap:8px;font-size:13px;text-align:start}
+.lecs button.cur{background:#fff;box-shadow:0 4px 12px rgba(150,100,0,.18);font-weight:600}
+.lecs .pg{opacity:.7;font-size:12px;flex:none}
+.pages{background:var(--reader);overflow-x:auto;padding:14px 12px 40px;flex:1}
+.pages .col{width:calc(100% * var(--z,1));margin:0 auto;display:grid;gap:14px}
+.page{background:#fff;box-shadow:0 2px 10px rgba(20,30,90,.18);border-radius:3px;position:relative;scroll-margin-top:var(--top-h,140px);overflow:hidden}
+.page img,.page canvas{display:block;width:100%;height:100%}
+.page .pn{position:absolute;bottom:8px;inset-inline-start:50%;transform:translateX(50%);background:rgba(27,15,180,.75);color:#fff;font-size:11px;padding:1px 8px;border-radius:9px;opacity:.85}
+.page .ph{position:absolute;inset:0;display:grid;place-items:center;color:#9aa0c0;font-size:12px}
+/* progress */
+.ring{width:56px;height:56px;flex:none}
+.ring circle{fill:none;stroke-width:6}
+.ring .bg{stroke:var(--line)}.ring .fg{stroke:var(--price);stroke-linecap:round;transition:stroke-dasharray .4s}
+.ring text{font-family:var(--f);font-size:13px;font-weight:600;fill:var(--fg)}
+.pcard{background:var(--surface);border-radius:18px;box-shadow:var(--shadow);padding:16px;display:grid;gap:12px}
+.pcard .row{display:flex;align-items:center;gap:14px}
+.pcard h3{font-size:15px;font-weight:500}
+.pcard .sub{font-size:12px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border-radius:10px;padding:6px 10px;font-size:12px;border:1.5px solid var(--line);color:var(--muted);display:flex;gap:6px;align-items:center}
+.chip.on{background:var(--sun);border-color:var(--sun);color:#4a3600;font-weight:500}
+
+/* forms */
+.form{display:grid;gap:14px}
+.field{display:grid;gap:6px;font-size:12px;color:var(--muted)}
+.field input,.field select{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;min-width:0;width:100%;color:var(--fg)}
+.drop{border:2px dashed color-mix(in srgb,var(--brand) 30%,var(--line));border-radius:18px;background:var(--surface);padding:20px;display:grid;place-items:center;gap:6px;text-align:center;color:var(--muted);font-size:12px;cursor:pointer}
+.drop svg{width:80px;height:66px}
+.drop input{display:none}
+.drop b{color:var(--fg);font-weight:500;font-size:13px}
+.btn{border-radius:14px;padding:12px 16px;font-weight:500;text-align:center}
+.btn.blue{background:var(--brand);color:#fff;box-shadow:0 10px 22px rgba(27,15,180,.25)}
+.btn.soft{background:var(--surface);color:var(--fg);box-shadow:var(--shadow)}
+.btn.red{background:transparent;color:#e0455f}
+.btn:disabled{opacity:.55;cursor:default}
+.note{font-size:12px;color:var(--muted)}
+.note.err{color:#e0455f}
+.inline-in{display:flex;gap:8px}
+.inline-in input{flex:1;min-width:0;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:9px 12px}
+.confirm{background:var(--surface);border-radius:16px;box-shadow:var(--shadow);padding:14px;display:grid;gap:10px;font-size:13px}
+.empty{text-align:center;color:var(--muted);padding:30px 10px;font-size:13px}
+.empty svg{width:120px;height:100px;margin-bottom:6px}
+
+/* bottom nav */
+.nav{position:sticky;bottom:0;height:calc(78px + env(safe-area-inset-bottom,0px));z-index:20;flex:none}
+.nav .barbg{position:absolute;inset:0;background:var(--brand);border-radius:30px 30px 0 0;
+  -webkit-mask:radial-gradient(circle 46px at 50% -6px,transparent 97%,#000 100%);mask:radial-gradient(circle 46px at 50% -6px,transparent 97%,#000 100%)}
+@media (min-width:560px){.nav .barbg{border-radius:30px 30px 34px 34px}}
+.nav .row{position:relative;height:100%;display:flex;justify-content:space-between;align-items:center;padding:8px 34px env(safe-area-inset-bottom,0px)}
+.nav .side{color:#c9c6ff;width:40px;height:40px;display:grid;place-items:center;border-radius:12px}
+.nav .side.act{color:#fff}
+.nav .side svg{width:24px;height:24px}
+.fab{position:absolute;left:50%;top:-30px;transform:translateX(-50%);width:62px;height:62px;border-radius:50%;background:var(--sky);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px rgba(91,184,245,.5);border:5px solid var(--app)}
+.fab svg{width:26px;height:26px}
+.fab.done{background:var(--green);box-shadow:0 10px 24px rgba(60,180,58,.45)}
+.loading{color:var(--muted);text-align:center;padding:60px 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="shell" dir="rtl" lang="ar"><div class="app" id="app"><div class="loading">جاري فتح الملازم…</div></div></div>
+
+<script src="vendor/pdf.min.js"></script>
+<script>
+(function(){
+const $=(s,el=document)=>el.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const FACE=["#5b7cf7","#ffb547","#4cc38a","#ff7a9c","#8b6cf0","#36b3d9","#f2905a"];
+const COLORS=["#5b7cf7","#ffb547","#4cc38a","#ff7a9c","#8b6cf0","#36b3d9"];
+
+/* ---------- illustrated icons (navy line + soft fills, like the reference) ---------- */
+const N="#2b2f7a";
+const PEAR=`<svg viewBox="0 0 164.54 264.95" aria-hidden="true"><g> <g> <g> <path fill="#121638" d="M121.12,258.27c-24.1,9.8-54.7,8.4-78.4-1.5-5.9-2.4-11.1-6.6-15.9-10.8-13.1-11.4-21.9-27-25.1-44.1-1.4-7.4-2.2-14.6-1.4-22,1.5-12.7,6.6-24.2,13.8-34.6l16.6-24.1c3.3-4.8,4.6-10.5,6.1-16.2,3.4-13.1,6.7-25.8,11-38.6,3.5-10.6,10.7-14.5,21.6-18.2-1.6-10.2-4.3-20.8-10.9-28.7-1.5-1.8-4.1-3.6-4.7-6.2-1-4.3,1.4-9.2,4.4-12,1.6-1.6,3.9-1.6,5.5-.5,8.6,6.2,12.3,22.1,16,33.1l4,12c17.2-.6,31.2,10.2,38.4,25.1,3.7,7.7,5.7,15.5,7.5,23.8l2,9.4c3.4,9.7,7.8,18.5,12.7,27.4l13.7,25.1,4,13.9c4.4,15.5,2.7,31.2-2.4,46.4-6.4,19-19.8,33.7-38.5,41.3h0Z"/> <path fill="#e5d643" d="M157.62,214.97c-16,48.5-69.5,55.5-113.5,39.9-19.4-10.4-33.7-27.9-39-49.5-1.9-7.9-3.1-16.2-2.3-24.3,1.3-13.1,6.8-24.8,14.1-35.4l16.1-23.4c4-5.8,5.3-12.8,7.2-19.7,3.5-13,6.5-25.8,11.3-38.5,4.5-12.1,28.6-18.8,44.6-14,10.9,3.3,19.2,11.8,23.9,21.8,7.9,16.7,7,31,13.9,44.1l17.9,33.7c3.2,6,5.4,11.3,7.2,17.7,4.3,16,4,31.7-1.2,47.4h0l-.2.2Z"/> <path fill="#644125" d="M81.12,46.07l-9.4,1.4-4-16.3c-1.8-7.2-6.5-12-11-17.9-2-2.6,1.2-10.5,4.4-10.6,4.4.9,6.9,6.3,8.5,10,4.7,10.9,7.6,21.8,11.5,33.4h0Z"/> <path fill="#f1929a" d="M125.92,185.17c-.7-.1-1.4-.3-2.1-.5s-1.3-.5-1.8-.9c-17.9-13.1-32.6-33.2-44.1-52-1.6,16.4-4.7,32.8-9.6,48.6-1.1,3.5-6.8,21.2-8.6,21.2-3.3,0-12.3-15.3-14.3-19-6-11.3-9-22.8-7.2-35.5,0-1-5.6,3.1-6.7,4-9.2,7.1-16.3,16.7-21.3,27.1l-2.1,1.6c-.2-1.1-.1-2.2.3-3.6,4-12.9,10.8-24.2,21.3-33,13-10.8,29.7-18.3,47.1-15.5,16.6,2.7,30.9,14.1,39.7,27.9,5.8,9.2,8.2,19.4,9.5,29.6h-.1Z"/> <g> <path fill="#020101" d="M125.92,185.17c2.6,19.3-5.2,38.4-19.7,51.8-9.3,8.6-20.4,14.6-32.4,18.4-8.8,2.8-17.6,1.7-25.3-3-7.5-4.5-14.5-8.8-20.9-14.8-9.4-8.8-16.8-19.3-20.4-31.8-1.9-6.6-1.6-20.5.9-26.1,6.6-14.5,16.9-27.7,31.9-35.7-1.8,11-1.1,21.1,3.3,30.8,3.9,9.4,9.1,17.7,16.2,26,10-23.2,15.5-47.7,17.5-73.2,12.8,22.8,29,42.5,48.9,57.6h0Z"/> <g> <path fill="#fefefd" d="M83.92,178.87c-2.6,6.4-3.1,13.8,1.1,19.7,5.5,8.2,16.8,10.1,24.1,3.7,6-5.2,7.6-12.6,5.8-20.8,6.3,6.2,1.3,18.6-5.6,24-1.2,1.1-2.8,2-4.7,2.6-7,1.9-15.1,1-21.5-3.1-5.9-3.8-8.7-14.4-7-17.9,1.6-3.3,3.7-6.6,7-8.3.2-.5.6-.5.8,0h0v.1Z"/> <path fill="#d14450" d="M113.22,192.27c-1.8,6.7-7.2,11.6-13.8,11.9-6.6.3-12.1-3.7-14.6-10.2,1-2.4,3.3-4.1,6.5-5.8.5,4.6,3.1,8,7.5,8.1s8.1-3,8.5-8.2c2.6.6,4.5,2.2,5.9,4.2h0Z"/> <path fill="#80191c" d="M28.52,188.57l-.8-.3c-2.3,8.1-9.9,4.8-10.6-2.2-.8.9-1.5,1.6-2.8,1.1,0-4.2.1-8.7,2.6-12.2l1.1.9c1.2,6.2,6.8-3.2.2-1l-1.4-.6c.7-2.3,3.1-4.4,5.5-4.5,6.3-.3,8.2,10.3,6.1,18.8h.1Z"/> <path fill="#d24854" d="M28.52,188.57c-.9,3.5-2.4,8.5-6.7,9-3.9.5-6.4-4.1-6.9-7.1l-.5-2.1c.1-.3,0-.9,0-1.2,1-1.2,2-2.5,4-3.2.3,2.8.5,5.7,2.8,7.2,1.4.9,3.1.5,4.1-.4s1.6-2.5,2-4.2c1-.3,1.6,1.1,1.3,2h-.1Z"/> <path fill="#faf9f9" d="M29.72,191.37c.3.2.7.7.5,1.3l-2.3,6c-.9,2.4-3.1,3.6-5.1,4.1-2.5.7-4.4-.6-6.5-1.7-1.6-1.1-2.5-2.4-2.5-3.9-3.1-7.5-5.5-17.3.6-22.3-2,6.5-2.8,13.2-.1,19.2,1.7,3.8,5.5,6.6,9.4,5,3.3-1.3,4.7-4.8,6-7.7h0Z"/> <path fill="#f9f4f4" d="M17.02,174.97v-.6c1.2-1,3.2-1.6,4.4-.8,1.5.9,1.6,2.8.9,4.1-.8,1.6-2.6,2.1-4,1.4-1.7-.8-1.7-2.7-1.4-4h0l.1-.1Z"/> <path fill="#a5a4a2" d="M83.92,178.87h-.8c0-.5.3-.7.7-1.1.5-.5,1,.2.6.7-.2.3-.4.3-.5.4h0Z"/> <path fill="#80191c" d="M14.92,190.47c-.1-.7-.9-1.2-.5-2.1.7.4.7,1.3.5,2.1Z"/> <g> <path fill="#7f181b" d="M113.22,192.27c-1.1.3-2.1-.2-3.1-1.5l-1.6-1c-2.8,9.9-15.3,10.6-18.3.5l-2.4,1.7c-.9,1.4-1.9,2-3,1.9-2.3-6-.7-12.7,3.2-18,7.5-4.4,16.6-3.4,23.1,2.2,2.4,4.5,3.4,9.4,2,14.1h0l.1.1Z"/> <circle fill="#fcfafa" cx="92.82" cy="180.57" r="3.7"/> </g> <g> <path fill="#fcded0" d="M76.12,187.17l.9,1.4c-.7,14.5,12.6,21.6,25.9,18.7l1.7.9c1.8-1,3.5-1.6,5.3-1.9,6.6-3.3,10.7-9.4,14-16.3,1.3,32.6-24.4,56.5-54.1,64.1-5.9,1.5-12,.6-17.3-2.1-19.2-9.9-35.2-23.9-42.6-44.5-1.8-5.2-2.2-10.5-1.5-16.1,1.6,2.8,2.2,5.5,4.5,7.2,1.1.6,2.2,1.4,3.1,2.6l.7-.6c7.3,3.8,11.6-2.7,12.9-9.2.6-2.5.6-5.2,2.4-7.6-.3-5.1-.7-10-3-14.5-1.9-3.7-5.6-5.6-9.7-3.9.7-1.8,1.9-3,3-4.3,4.2,1.6,7.2,4,10.6,7.1-.1-5-3.8-8.1-8.7-9.1,4-4.5,8.2-7.9,13.2-11.6-1.4,11.6.5,22.2,5.7,32.4,4.5,8.9,9.3,17.5,17.3,24.7,10.1-22.6,15.7-45.7,18.2-69.5,6.3,9.5,11.4,17.9,18.6,25.8l-10.3.7c-4.1.9-8,3.3-9.1,8,6.7-4.3,13.8-6,21.3-6.4l3.9,5c-13.1-3.2-25.1,4.8-27.6,17.7-.1.7.3,1.3.7,1.3h0Z"/> <path fill="#585350" d="M16.22,201.17c-1.3-.6-2.5-1.3-3.1-2.6.5-.1.7-.7.6-1.3l2.5,3.9h0Z"/> <path fill="#867e79" d="M109.92,206.27c-1.7.8-3.4,1.6-5.3,1.9,1.1-1.6,3.3-1.4,4.7-2.6l.6.7h0Z"/> <path fill="#070605" d="M72.82,229.67c-11.1,7.7-28.7,7-35-1.3-.4-.6.5-1.3,1.1-1.3.7.1,1,.7,1.8,1.2,9.1,6.7,21.8,6,30.4-1.2.9-.7,1.9-.6,2.3,0,.4.6.3,1.9-.6,2.5h0v.1Z"/> </g> </g> </g> </g> </g> </g></svg>`;
+const IC={
+ cpp:`<svg viewBox="0 0 80 66"><rect x="10" y="10" width="44" height="40" rx="6" fill="#bfe0ff" stroke="${N}" stroke-width="2"/><rect x="18" y="6" width="44" height="40" rx="6" fill="#fff" stroke="${N}" stroke-width="2"/><path d="M34 20a8 8 0 1 0 0 12" fill="none" stroke="#5b7cf7" stroke-width="3" stroke-linecap="round"/><path d="M44 26h8M48 22v8M55 26h6M58 23v6" stroke="#ff7a9c" stroke-width="2.4" stroke-linecap="round"/><path d="M8 54h58" stroke="${N}" stroke-width="2" stroke-linecap="round"/><circle cx="66" cy="54" r="5" fill="#ffd36b" stroke="${N}" stroke-width="2"/></svg>`,
+ py:`<svg viewBox="0 0 80 66"><path d="M40 8c-10 0-12 4-12 8v6h13v3H22c-6 0-10 4-10 12s4 12 9 12h5v-7c0-5 4-9 9-9h11c4 0 7-3 7-7V16c0-4-4-8-13-8z" fill="#8ec5ff" stroke="${N}" stroke-width="2" stroke-linejoin="round"/><path d="M40 58c10 0 12-4 12-8v-6H39v-3h19c6 0 10-4 10-12s-4-12-9-12h-5v7c0 5-4 9-9 9H34c-4 0-7 3-7 7v10c0 4 4 8 13 8z" fill="#ffd36b" stroke="${N}" stroke-width="2" stroke-linejoin="round"/><circle cx="34" cy="15" r="2.2" fill="${N}"/><circle cx="46" cy="51" r="2.2" fill="${N}"/></svg>`,
+ book:`<svg viewBox="0 0 80 66"><path d="M14 14c8-4 17-4 26 2v40c-9-6-18-6-26-2z" fill="#ffd0de" stroke="${N}" stroke-width="2" stroke-linejoin="round"/><path d="M66 14c-8-4-17-4-26 2v40c9-6 18-6 26-2z" fill="#fff" stroke="${N}" stroke-width="2" stroke-linejoin="round"/><path d="M46 26c5-2 9-2 14 0M46 34c5-2 9-2 14 0M46 42c5-2 9-2 14 0" stroke="#5b7cf7" stroke-width="2" stroke-linecap="round"/><path d="M58 6v14l4-3 4 3V6z" fill="#ff7a9c" stroke="${N}" stroke-width="2" stroke-linejoin="round"/></svg>`,
+ chart:`<svg viewBox="0 0 80 66"><rect x="10" y="8" width="56" height="46" rx="4" fill="#fff" stroke="${N}" stroke-width="2"/><path d="M14 48l12-14 10 6 12-18 14 10v18H14z" fill="#8ec5ff" opacity=".7"/><path d="M14 46l12-14 10 6 12-18 14 10" fill="none" stroke="${N}" stroke-width="2.2" stroke-linejoin="round"/><circle cx="48" cy="20" r="3.5" fill="#ff7a9c" stroke="${N}" stroke-width="1.6"/><path d="M6 58h66" stroke="${N}" stroke-width="2" stroke-linecap="round"/></svg>`,
+ upload:`<svg viewBox="0 0 80 66"><path d="M22 10h28l12 12v36H22z" fill="#fff" stroke="${N}" stroke-width="2" stroke-linejoin="round"/><path d="M50 10v12h12" fill="#ffd36b" stroke="${N}" stroke-width="2" stroke-linejoin="round"/><rect x="28" y="30" width="16" height="7" rx="2" fill="#ff7a9c"/><circle cx="58" cy="50" r="12" fill="#8ec5ff" stroke="${N}" stroke-width="2"/><path d="M58 56v-12M53 49l5-5 5 5" stroke="${N}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`,
+ resume:`<svg viewBox="0 0 80 66"><rect x="12" y="12" width="44" height="36" rx="4" fill="#ffe7a8" stroke="${N}" stroke-width="2"/><path d="M12 22h44" stroke="${N}" stroke-width="2"/><circle cx="20" cy="17" r="1.6" fill="${N}"/><circle cx="26" cy="17" r="1.6" fill="${N}"/><path d="M20 30h20M20 38h12" stroke="#5b7cf7" stroke-width="2.4" stroke-linecap="round"/><circle cx="58" cy="44" r="13" fill="#fff" stroke="${N}" stroke-width="2"/><path d="M58 37v8l5 3" stroke="#ff7a9c" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>`,
+ generic:`<svg viewBox="0 0 80 66"><rect x="16" y="8" width="40" height="50" rx="5" fill="#fff" stroke="${N}" stroke-width="2"/><rect x="24" y="16" width="24" height="12" rx="2" fill="#bfe0ff"/><path d="M24 36h24M24 43h16" stroke="${N}" stroke-width="2" stroke-linecap="round"/><circle cx="58" cy="48" r="10" fill="#ffd36b" stroke="${N}" stroke-width="2"/><path d="M54 48l3 3 5-6" stroke="${N}" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`,
+ sched:`<svg viewBox="0 0 48 48"><rect x="7" y="10" width="34" height="30" rx="4" fill="#fff" stroke="${N}" stroke-width="2"/><path d="M7 18h34" stroke="${N}" stroke-width="2"/><rect x="7" y="10" width="34" height="8" rx="3" fill="#8ec5ff" stroke="${N}" stroke-width="2"/><path d="M15 6v8M33 6v8" stroke="${N}" stroke-width="2" stroke-linecap="round"/><g fill="#ff7a9c"><rect x="13" y="23" width="5" height="4" rx="1"/><rect x="22" y="23" width="5" height="4" rx="1"/><rect x="31" y="23" width="5" height="4" rx="1" fill="#ffd36b"/><rect x="13" y="31" width="5" height="4" rx="1" fill="#ffd36b"/><rect x="22" y="31" width="5" height="4" rx="1"/></g></svg>`,
+ zin:`<svg viewBox="0 0 48 48"><circle cx="21" cy="21" r="12" fill="#bfe0ff" stroke="${N}" stroke-width="2"/><path d="M30 30l9 9" stroke="${N}" stroke-width="3" stroke-linecap="round"/><path d="M16 21h10M21 16v10" stroke="#ff7a9c" stroke-width="2.6" stroke-linecap="round"/></svg>`,
+ zout:`<svg viewBox="0 0 48 48"><circle cx="21" cy="21" r="12" fill="#ffe7a8" stroke="${N}" stroke-width="2"/><path d="M30 30l9 9" stroke="${N}" stroke-width="3" stroke-linecap="round"/><path d="M16 21h10" stroke="#ff7a9c" stroke-width="2.6" stroke-linecap="round"/></svg>`,
+};
+const MEDAL=`<svg viewBox="0 0 32 32"><path d="M10 3h5l-2 9H8zM22 3h-5l2 9h5z" fill="#ff8a65"/><circle cx="16" cy="20" r="9" fill="#ffc24a" stroke="#f0a020" stroke-width="2"/><path d="M16 15l1.6 3.3 3.6.5-2.6 2.5.6 3.6L16 23.2l-3.2 1.7.6-3.6-2.6-2.5 3.6-.5z" fill="#fff6d6"/></svg>`;
+const I={
+ home:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"/></svg>`,
+ chart:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>`,
+ plus:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>`,
+ check:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`,
+ book:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg>`,
+ back:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>`,
+ next:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>`,
+ prev:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>`,
+ search:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>`,
+ target:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>`,
+ trash:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/></svg>`,
+ chev:`<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>`,
+ bell:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>`,
+};
+function bookIcon(b){const t=(b.title+" "+b.subject).toLowerCase();if(/c\+\+|cpp|object/.test(t))return IC.cpp;if(/python|بايثون/.test(t))return IC.py;return IC.generic}
+function ring(p,size=56){const r=22,c=2*Math.PI*r;return `<svg class="ring" viewBox="0 0 56 56" style="width:${size}px;height:${size}px"><circle class="bg" cx="28" cy="28" r="${r}"/><circle class="fg" cx="28" cy="28" r="${r}" stroke-dasharray="${c*p/100} ${c}" transform="rotate(-90 28 28)"/><text x="28" y="32.5" text-anchor="middle">${p}%</text></svg>`}
+
+/* ---------- state ---------- */
+const S={db:null,assets:null,uid:null,books:[],progress:{},ready:false,view:"home",bookId:null,q:"",
+  addMsg:"",addErr:false,busy:false,confirmDel:false,fileName:"",
+  pdf:null,pdfFor:null,pdfErr:"",page:1,zoom:1,drawerOpen:false,newLec:"",markOpen:false};
+const pdfCache={};
+function ls(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k)||"null");localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+function lastPage(id,v){const m=ls("lastPages")||{};if(v===undefined)return m[id]||1;m[id]=v;ls("lastPages",m);ls("lastBook",id)}
+
+/* ---------- local storage (no server) ---------- */
+if(window.pdfjsLib)pdfjsLib.GlobalWorkerOptions.workerSrc="vendor/pdf.worker.min.js";
+const IDB={p:null,
+  open(){return this.p||(this.p=new Promise((res,rej)=>{const r=indexedDB.open("almalazim",1);r.onupgradeneeded=()=>r.result.createObjectStore("books",{keyPath:"id"});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}))},
+  async tx(mode,fn){const d=await this.open();return new Promise((res,rej)=>{const t=d.transaction("books",mode),st=t.objectStore("books"),q=fn(st);t.oncomplete=()=>res(q&&q.result);t.onerror=()=>rej(t.error)})},
+  all(){return this.tx("readonly",st=>st.getAll())},
+  put(v){return this.tx("readwrite",st=>st.put(v))},
+  del(id){return this.tx("readwrite",st=>st.delete(id))}};
+function sortBooks(){S.books.sort((a,b)=>(a.order??99)-(b.order??99)||String(a.createdAt||"").localeCompare(String(b.createdAt||"")))}
+async function boot(){
+  render();
+  S.progress=ls("progress")||{};
+  const hidden=ls("hiddenBooks")||[],over=ls("lectureOverrides")||{};
+  let builtIn=[];
+  try{builtIn=(await (await fetch("books.json",{cache:"no-cache"})).json()).books||[]}catch(e){}
+  builtIn=builtIn.filter(b=>!hidden.includes(b.id)).map(b=>over[b.id]?{...b,lectures:over[b.id]}:b);
+  let local=[];try{local=(await IDB.all()).map(b=>({...b,local:true}))}catch(e){}
+  S.books=[...builtIn,...local];sortBooks();S.ready=true;
+  try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
+  route();
+}
+function saveProgress(){ls("progress",S.progress)}
+function isDone(b,i){return (S.progress[b.id]||[]).includes(i)}
+function toggleDone(b,i){const a=new Set(S.progress[b.id]||[]);a.has(i)?a.delete(i):a.add(i);S.progress={...S.progress,[b.id]:[...a].sort((x,y)=>x-y)};saveProgress();render()}
+function doneCount(b){const n=(b.lectures||[]).length;return (S.progress[b.id]||[]).filter(i=>i<n).length}
+function pct(b){const n=(b.lectures||[]).length;return n?Math.round(doneCount(b)/n*100):0}
+const book=()=>S.books.find(x=>x.id===S.bookId);
+
+/* ---------- routing ---------- */
+function route(h){
+  h=h??location.hash.replace("#","");
+  const m=h.match(/^(book|read)-(.+)$/);
+  if(m){const b=S.books.find(x=>x.id===m[2]);if(!b){if(!S.ready){S.pendingRoute=h};S.view=S.ready?"home":S.view;render();return}
+    S.bookId=b.id;S.confirmDel=false;
+    if(m[1]==="book"){S.view="book";S.q="";render()}else{const was=S.view==="read"&&S.bookId===b.id;S.view="read";if(!was){S.page=lastPage(b.id);S.jump=S.page;S.drawerOpen=false;S.markOpen=false}render();ensurePdf(b)}
+    return}
+  S.view=(h==="progress"||h==="add")?h:"home";S.addMsg="";render();
+}
+window.addEventListener("hashchange",()=>route());
+function go(h){if(location.hash.replace("#","")!==h)location.hash=h;else route(h)}
+
+/* ---------- reader ---------- */
+const STD=new URL("vendor/standard_fonts/",location.href).href;
+async function loadPdf(b){
+  if(pdfCache[b.id])return pdfCache[b.id];
+  const buf=await (b.pdf instanceof Blob?b.pdf:await (await fetch(b.url)).blob()).arrayBuffer();
+  const doc=await pdfjsLib.getDocument({data:buf,standardFontDataUrl:STD}).promise;
+  const sizes=[];for(let i=1;i<=doc.numPages;i++){const v=(await doc.getPage(i)).getViewport({scale:1});sizes.push([v.width,v.height])}
+  return pdfCache[b.id]={doc,sizes};
+}
+function pageList(b){
+  if(b.pageImages&&b.pageImages.length)return b.pageImages.map(p=>({w:p.w,h:p.h,src:p.src}));
+  if(S.pdfFor===b.id&&S.pdf)return S.pdf.sizes.map(([w,h])=>({w,h}));
+  return null;
+}
+function numPages(b){const l=pageList(b);return l?l.length:(b.pages||0)}
+async function ensurePdf(b){
+  if(b.pageImages&&b.pageImages.length)return;
+  if(S.pdfFor===b.id&&S.pdf)return;
+  S.pdf=null;S.pdfErr="";
+  try{S.pdf=await loadPdf(b);S.pdfFor=b.id;S.jump=S.page;
+    if(!b.pages&&b.local){b.pages=S.pdf.doc.numPages;saveLocal(b)}
+  }catch(e){S.pdfErr="ما گدرت أفتح الملف. جرّب تحدّث الصفحة."}
+  if(S.view==="read")render();
+}
+let io=null;
+function setupReader(){
+  const b=book();if(!b)return;
+  const top=$(".readtop");if(top)document.documentElement.style.setProperty("--top-h",(top.offsetHeight+12)+"px");
+  if(io){io.disconnect();io=null}
+  if(!(b.pageImages&&b.pageImages.length)&&S.pdf){
+    io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)drawPdfPage(e.target)}),{rootMargin:"900px 0px"});
+    document.querySelectorAll(".page").forEach(el=>io.observe(el));
+  }
+}
+async function drawPdfPage(el){
+  const n=+el.dataset.n,dpr=Math.min(window.devicePixelRatio||1,2.5),w=Math.round(el.clientWidth*dpr);
+  if(+el.dataset.rw===w)return;el.dataset.rw=w;
+  const p=await S.pdf.doc.getPage(n),base=p.getViewport({scale:1}),vp=p.getViewport({scale:w/base.width});
+  const cv=document.createElement("canvas");cv.width=vp.width;cv.height=vp.height;
+  try{await p.render({canvasContext:cv.getContext("2d"),viewport:vp}).promise}catch(e){return}
+  el.querySelectorAll("canvas,.ph").forEach(x=>x.remove());el.prepend(cv);
+}
+function pageEl(n){return document.querySelector('.page[data-n="'+n+'"]')}
+function goPage(n,smooth){const b=book();n=Math.max(1,Math.min(numPages(b)||1,n|0));const el=pageEl(n);if(el){el.scrollIntoView({block:"start",behavior:smooth?"smooth":"auto"});S.page=n;lastPage(b.id,n);patchRead()}}
+function trackPage(){
+  if(S.view!=="read")return;const b=book();if(!b)return;
+  const line=(parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--top-h"))||140)+innerHeight*0.15;
+  let best=S.page;for(const el of document.querySelectorAll(".page")){const r=el.getBoundingClientRect();if(r.top<=line&&r.bottom>line){best=+el.dataset.n;break}if(r.top>line)break}
+  if(best!==S.page){S.page=best;lastPage(b.id,best);patchRead()}
+}
+let tick=false;window.addEventListener("scroll",()=>{if(tick)return;tick=true;requestAnimationFrame(()=>{tick=false;trackPage()})},{passive:true});
+function patchRead(){
+  const b=book();if(!b||S.view!=="read")return;
+  const ci=curLec(b),lecs=b.lectures||[],d=ci>=0&&isDone(b,ci);
+  const t=$("#gbTitle");if(t)t.textContent=ci>=0?lecs[ci].t:b.subject;
+  const pi=$("#pageIn");if(pi&&document.activeElement!==pi)pi.value=S.page;
+  const fab=$(".fab");if(fab){fab.classList.toggle("done",d);fab.dataset.act=ci>=0?"doneCur":"toggleMark";fab.setAttribute("aria-label",ci>=0?(d?"إلغاء تأشير المحاضرة":"أشّر المحاضرة خلصت"):"علّم محاضرة")}
+  document.querySelectorAll(".lecs button").forEach((el,i)=>el.classList.toggle("cur",i===ci));
+  const ml=$("#markLbl");if(ml)ml.textContent=S.page;
+}
+function setPage(n){goPage(n)}
+function curLec(b){let k=-1;(b.lectures||[]).forEach((l,i)=>{if(l.page<=S.page)k=i});return k}
+
+/* ---------- writes ---------- */
+function saveLocal(b){const {local,...rec}=b;return IDB.put(rec).catch(()=>{})}
+async function addBook(form){
+  const f=form.file.files[0],title=form.title.value.trim(),subject=(form.subject.value==="__new"?form.subjectNew.value:form.subject.value).trim();
+  if(!f)return msg("اختار ملف PDF أولاً.",true);
+  if(!title)return msg("اكتب اسم الملزمة.",true);
+  S.busy=true;msg("جاري حفظ الملف…");
+  try{
+    const buf=await f.arrayBuffer();let pages=0;
+    try{pages=(await pdfjsLib.getDocument({data:buf.slice(0),standardFontDataUrl:STD}).promise).numPages}catch(e){}
+    const subs=[...new Set(S.books.map(b=>b.subject))];
+    const color=COLORS[(subs.includes(subject)?subs.indexOf(subject):subs.length)%COLORS.length];
+    const b={id:"u"+Date.now().toString(36),title,subject:subject||"عام",color,pages,lectures:[],order:100+S.books.length,createdAt:new Date().toISOString(),pdf:new Blob([buf],{type:"application/pdf"})};
+    await IDB.put(b);S.books.push({...b,local:true});sortBooks();
+    S.busy=false;S.addMsg="";S.fileName="";go("read-"+b.id);
+  }catch(e){S.busy=false;msg("ما تم الحفظ: "+(e&&e.message||"خطأ غير معروف"),true)}
+}
+function msg(t,err){S.addMsg=t;S.addErr=!!err;render()}
+async function deleteBook(b){
+  if(b.local){try{await IDB.del(b.id)}catch(e){}}
+  else{const h=ls("hiddenBooks")||[];if(!h.includes(b.id))h.push(b.id);ls("hiddenBooks",h)}
+  S.books=S.books.filter(x=>x.id!==b.id);delete pdfCache[b.id];
+  const p={...S.progress};delete p[b.id];S.progress=p;saveProgress();go("");
+}
+function saveLectures(b,lecs){
+  lecs.sort((x,y)=>x.page-y.page);let k=0;lecs.forEach(l=>{if(!l.short||/^L\d+$/.test(l.short))l.short="L"+(++k)});b.lectures=lecs;render();
+  if(b.local)saveLocal(b);else{const o=ls("lectureOverrides")||{};o[b.id]=lecs;ls("lectureOverrides",o)}
+}
+/* ---------- views ---------- */
+function nav(center,centerAct,centerLabel,centerCls=""){
+  const v=S.view;
+  return `<nav class="nav"><div class="barbg"></div><div class="row">
+    <button class="side${v==="home"?" act":""}" data-go="" aria-label="الرئيسية">${I.home}</button>
+    <button class="side${v==="progress"?" act":""}" data-go="progress" aria-label="التقدّم">${I.chart}</button>
+  </div><button class="fab ${centerCls}" data-act="${centerAct}" aria-label="${centerLabel}">${center}</button></nav>`;
+}
+function homeView(){
+  const lb=S.books.find(b=>b.id===ls("lastBook"));
+  const total=S.books.reduce((n,b)=>n+(b.lectures||[]).length,0),done=S.books.reduce((n,b)=>n+doneCount(b),0);
+  let h=`<div class="screen"><header class="hero"><div class="bar"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span><span class="avatar">${PEAR}</span></div>
+    <h1>الملازم</h1><p>${S.ready?`${S.books.length} ملازم · خلصت ${done} من ${total} محاضرة`:"جاري التحميل…"}</p></header>
+    <div class="sheet">`;
+  if(S.ready&&!S.books.length){h+=`<div class="empty">${IC.upload}<div>ماكو ملازم بعد. اضغط الزر الأزرق وضيف أول ملزمة.</div></div>`}
+  else{
+    h+=`<div class="grid">`;
+    S.books.forEach(b=>{const p=pct(b);h+=`<button class="tile" data-go="book-${esc(b.id)}"><span class="ic">${bookIcon(b)}</span><span class="lbl"><b>${esc(b.subject)}</b>${doneCount(b)}/${(b.lectures||[]).length} محاضرات</span><span class="mini"><i style="width:${p}%"></i></span></button>`});
+    h+=`</div>`;
+  }
+  h+=`</div></div>`+nav(I.plus,"goAdd","ضيف ملزمة");
+  return h;
+}
+function bookView(){
+  const b=book();if(!b)return`<div class="loading">جاري التحميل…</div>`;
+  const lecs=(b.lectures||[]).map((l,i)=>({...l,i})).filter(l=>!S.q||l.t.toLowerCase().includes(S.q.toLowerCase()));
+  let h=`<div class="screen"><div class="topbar"><button class="iconbtn" data-go="" aria-label="رجوع للرئيسية">${I.back}</button>
+    <label class="search">${I.search}<input id="q" placeholder="ابحث بالمحاضرات" value="${esc(S.q)}"></label>
+    <button class="iconbtn" data-act="askDel" aria-label="حذف الملزمة">${I.trash}</button></div>
+    <div class="summary">${ring(pct(b),52)}<div style="min-width:0"><h2>${esc(b.subject)}</h2><div class="sub">${esc(b.title)} · <span class="ltr">${b.pages||"—"}</span> صفحة</div></div></div>`;
+  if(S.confirmDel)h+=`<div style="padding:10px 20px 0"><div class="confirm">تحذف «${esc(b.title)}» من الملازم؟ الملف يتمسح وية التأشيرات.<div style="display:flex;gap:8px"><button class="btn blue" data-act="delYes" style="background:#e0455f;box-shadow:none;flex:1">إي، احذف</button><button class="btn soft" data-act="delNo" style="flex:1">لا</button></div></div></div>`;
+  h+=`<div class="list">`;
+  if(!(b.lectures||[]).length)h+=`<div class="empty">ماكو محاضرات معلّمة بهذي الملزمة بعد.<br>افتحها، روح لأول صفحة بكل محاضرة، واضغط + بالشريط الأخضر.</div>`;
+  else if(!lecs.length)h+=`<div class="empty">ماكو محاضرة بهذا الاسم.</div>`;
+  lecs.forEach(l=>{const d=isDone(b,l.i);
+    h+=`<div class="card"><button class="face" style="background:${FACE[l.i%FACE.length]}" data-open="${l.page}" aria-label="افتح ${esc(l.t)}">${l.i+1}</button>
+      <button class="txt" data-open="${l.page}" style="text-align:start"><b>${esc(l.t)}</b><span class="price">ص <span class="ltr">${l.page}</span><small>${l.sub?esc(l.sub):"/"+(b.pages||"")}</small></span></button>
+      <button class="medal${d?"":" off"}" data-done="${l.i}" aria-label="${d?"إلغاء التأشير":"أشّر خلصتها"}">${MEDAL}</button></div>`});
+  h+=`</div></div>`+nav(I.book,"readBook","اقرأ الملزمة");
+  return h;
+}
+function readView(){
+  const b=book();if(!b)return`<div class="loading">جاري التحميل…</div>`;
+  const lecs=b.lectures||[],ci=curLec(b),list=pageList(b),n=list?list.length:(b.pages||0),d=ci>=0&&isDone(b,ci);
+  let h=`<div class="screen" style="padding-bottom:0"><div class="readtop">
+    <div class="greenbar"><button data-go="book-${esc(b.id)}" aria-label="قائمة المحاضرات">${I.back}</button>
+      <span class="t" id="gbTitle">${ci>=0?esc(lecs[ci].t):esc(b.subject)}</span>
+      <button data-act="toggleMark" aria-label="علّم محاضرة بهذي الصفحة">${I.plus}</button></div>`;
+  if(S.markOpen)h+=`<div class="inline-in"><input id="newLec" placeholder="اسم المحاضرة اللي تبدي بالصفحة الحالية" value="${esc(S.newLec)}"><button class="btn blue" data-act="markLec" style="padding:9px 14px">علّم ص <span id="markLbl">${S.page}</span></button></div>`;
+  h+=`<div class="rtools">
+      <button class="pill yellow${S.drawerOpen?" open":""}" data-act="drawer">المحاضرات ${I.chev}</button>
+      <span class="grow"></span>
+      <label class="pill" for="pageIn">ص <input id="pageIn" inputmode="numeric" value="${S.page}" aria-label="رقم الصفحة"> / <span class="ltr">${n||"…"}</span></label>
+      <span class="pill"><button class="zb" data-act="zout" aria-label="تصغير">−</button><span class="ltr" style="min-width:38px;text-align:center">${Math.round(S.zoom*100)}%</span><button class="zb" data-act="zin" aria-label="تكبير">+</button></span>
+    </div>`;
+  if(S.drawerOpen)h+=`<div class="lecs">${lecs.length?lecs.map((l,i)=>`<button class="${i===ci?"cur":""}" data-page="${l.page}"><span>${isDone(b,i)?"✓ ":""}${esc(l.t)}</span><span class="pg">ص ${l.page}</span></button>`).join(""):`<div style="color:#5b4300;font-size:13px;text-align:center">ماكو محاضرات معلّمة. اضغط + بالشريط الأخضر.</div>`}</div>`;
+  h+=`</div><div class="pages"><div class="col" style="--z:${S.zoom}">`;
+  if(S.pdfErr&&!list)h+=`<div class="loading">${esc(S.pdfErr)}</div>`;
+  else if(!list)h+=`<div class="loading">جاري فتح الملزمة…</div>`;
+  else list.forEach((p,i)=>{h+=`<div class="page" data-n="${i+1}" style="aspect-ratio:${p.w}/${p.h}">${p.src?`<img src="${esc(p.src)}" alt="صفحة ${i+1}" ${i<3?"":'loading="lazy"'} decoding="async">`:`<span class="ph">صفحة ${i+1}</span>`}<span class="pn ltr">${i+1}</span></div>`});
+  h+=`</div></div></div>`;
+  h+=nav(I.check,ci>=0?"doneCur":"toggleMark",ci>=0?(d?"إلغاء تأشير المحاضرة":"أشّر المحاضرة خلصت"):"علّم محاضرة",d?"done":"");
+  return h;
+}
+function progressView(){
+  const total=S.books.reduce((n,b)=>n+(b.lectures||[]).length,0),done=S.books.reduce((n,b)=>n+doneCount(b),0),all=total?Math.round(done/total*100):0;
+  let h=`<div class="screen"><header class="hero" style="padding-bottom:64px"><div class="bar"><button class="burger" data-go="" aria-label="رجوع"><i></i><i></i><i></i></button><span class="avatar">${PEAR}</span></div>
+    <h1>التقدّم</h1><p>خلصت ${done} من ${total} محاضرة (${all}%)</p></header><div class="sheet" style="display:grid;gap:14px;align-content:start">`;
+  if(!S.books.length)h+=`<div class="empty">ماكو ملازم بعد.</div>`;
+  S.books.forEach(b=>{h+=`<div class="pcard"><div class="row">${ring(pct(b))}<div style="min-width:0;flex:1"><h3>${esc(b.subject)}</h3><div class="sub">${doneCount(b)} من ${(b.lectures||[]).length} محاضرات</div></div><button class="iconbtn" data-go="read-${esc(b.id)}" aria-label="اقرأ">${I.book}</button></div>
+    <div class="chips">${(b.lectures||[]).map((l,i)=>`<button class="chip${isDone(b,i)?" on":""}" data-pdone="${esc(b.id)}:${i}" title="${esc(l.t)}">${isDone(b,i)?"✓":""} ${esc(l.short||"L"+(i+1))}</button>`).join("")||`<span class="note">ماكو محاضرات معلّمة.</span>`}</div></div>`});
+  h+=`</div></div>`+nav(I.plus,"goAdd","ضيف ملزمة");
+  return h;
+}
+function addView(){
+  const subs=[...new Set(S.books.map(b=>b.subject))];
+  return `<div class="screen"><div class="greenbar" style="margin:18px 16px 0;background:var(--brand);box-shadow:0 8px 20px rgba(27,15,180,.25)"><button data-go="" aria-label="رجوع">${I.back}</button><span class="t">ضيف ملزمة جديدة</span><span style="width:30px"></span></div>
+  <form class="form" id="addForm" style="padding:18px 20px">
+    <label class="drop" for="f_file">${IC.upload}<b>${S.fileName?esc(S.fileName):"اختار ملف PDF"}</b>${S.fileName?"اضغط لتغيير الملف":"ينحفظ على هذا الجهاز"}<input type="file" id="f_file" name="file" accept="application/pdf"></label>
+    <label class="field">اسم الملزمة<input id="f_title" name="title" placeholder="مثلاً: Data Structures — المحاضرات 1–3"></label>
+    <label class="field">المادة<select id="f_subject" name="subject">${subs.map(s=>`<option>${esc(s)}</option>`).join("")}<option value="__new"${subs.length?"":" selected"}>مادة جديدة…</option></select></label>
+    <label class="field" id="newSubWrap"${subs.length?" hidden":""}>اسم المادة الجديدة<input id="f_subjectNew" name="subjectNew" placeholder="مثلاً: Data Structures"></label>
+    <button class="btn blue" type="submit"${S.busy?" disabled":""}>${S.busy?"جاري الحفظ…":"ضيف الملزمة"}</button>
+    ${S.addMsg?`<div class="note${S.addErr?" err":""}">${esc(S.addMsg)}</div>`:""}
+    <div class="note">بعد الإضافة تنفتح الملزمة. روح لأول صفحة بكل محاضرة واضغط + بالشريط الأخضر حتى تعلّمها.</div>
+  </form></div>`+nav(I.plus,"submitAdd","ضيف الملزمة");
+}
+
+function render(){
+  const app=$("#app"),f=document.activeElement&&document.activeElement.id;
+  let anchor=null;if(S.view==="read"&&S.jump==null){const el=pageEl(S.page);if(el)anchor={n:S.page,top:el.getBoundingClientRect().top}}
+  app.classList.toggle("wide",S.view==="read");
+  const keep={};if(S.view==="add")["f_title","f_subject","f_subjectNew"].forEach(id=>{const el=document.getElementById(id);if(el)keep[id]=el.value});
+  const file=$("#f_file")&&$("#f_file").files;
+  app.innerHTML=S.view==="book"?bookView():S.view==="read"?readView():S.view==="progress"?progressView():S.view==="add"?addView():homeView();
+  Object.entries(keep).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.value=v});
+  if(file&&file.length&&$("#f_file")){try{$("#f_file").files=file}catch(e){}}
+  if(S.view==="add"&&$("#f_subject"))$("#newSubWrap").hidden=$("#f_subject").value!=="__new";
+  bind();
+  if(f){const el=document.getElementById(f);if(el&&el.tagName==="INPUT"&&el.type!=="file"){el.focus();try{el.setSelectionRange(el.value.length,el.value.length)}catch(e){}}}
+  if(S.view==="read"){
+    setupReader();
+    if(S.jump!=null){const n=S.jump;S.jump=null;goPage(n)}
+    else if(anchor){const el=pageEl(anchor.n);if(el)window.scrollBy(0,el.getBoundingClientRect().top-anchor.top)}
+  }
+}
+function bind(){
+  const b=book();
+  document.querySelectorAll("[data-go]").forEach(el=>el.onclick=e=>{e.preventDefault();go(el.dataset.go)});
+  document.querySelectorAll("[data-open]").forEach(el=>el.onclick=()=>{S.page=+el.dataset.open;lastPage(b.id,S.page);go("read-"+b.id)});
+  document.querySelectorAll("[data-page]").forEach(el=>el.onclick=()=>{S.drawerOpen=false;S.jump=+el.dataset.page;render()});
+  document.querySelectorAll("[data-done]").forEach(el=>el.onclick=()=>toggleDone(b,+el.dataset.done));
+  document.querySelectorAll("[data-pdone]").forEach(el=>el.onclick=()=>{const [id,i]=el.dataset.pdone.split(":");toggleDone(S.books.find(x=>x.id===id),+i)});
+  document.querySelectorAll("[data-act]").forEach(el=>el.onclick=()=>act(el.dataset.act,b));
+  const q=$("#q");if(q)q.oninput=()=>{S.q=q.value;render()};
+  const pi=$("#pageIn");if(pi){pi.onchange=()=>goPage(+pi.value);pi.onkeydown=e=>{if(e.key==="Enter"){goPage(+pi.value);pi.blur()}}}
+  const nl=$("#newLec");if(nl){nl.oninput=()=>{S.newLec=nl.value};nl.onkeydown=e=>{if(e.key==="Enter")act("markLec",b)}}
+  const form=$("#addForm");if(form){form.onsubmit=e=>{e.preventDefault();addBook(form)};
+    $("#f_subject").onchange=()=>{$("#newSubWrap").hidden=$("#f_subject").value!=="__new"};
+    $("#f_file").onchange=()=>{const f=$("#f_file").files[0];S.fileName=f?f.name:"";const t=$("#f_title");if(f&&t&&!t.value)t.value=f.name.replace(/\.pdf$/i,"").replace(/[_-]+/g," ");render()}}
+}
+function act(a,b){
+  switch(a){
+    case"goAdd":go("add");break;
+    case"submitAdd":{const f=$("#addForm");if(f)addBook(f);break}
+    case"readBook":go("read-"+b.id);break;
+    case"askDel":S.confirmDel=true;render();break;
+    case"delNo":S.confirmDel=false;render();break;
+    case"delYes":deleteBook(b);break;
+        case"zin":S.zoom=Math.min(3,+(S.zoom+.25).toFixed(2));S.jump=S.page;render();break;
+    case"zout":S.zoom=Math.max(.5,+(S.zoom-.25).toFixed(2));S.jump=S.page;render();break;
+    case"drawer":S.drawerOpen=!S.drawerOpen;render();break;
+    case"toggleMark":S.markOpen=!S.markOpen;render();if(S.markOpen)setTimeout(()=>{const el=$("#newLec");el&&el.focus()},0);break;
+    case"doneCur":{const i=curLec(b);if(i>=0)toggleDone(b,i);break}
+    case"markLec":{
+      const lecs=(b.lectures||[]).filter(l=>l.page!==S.page).map(l=>({...l}));
+      const t=S.newLec.trim()||("Lecture "+(lecs.filter(l=>l.page<S.page).length+1));
+      lecs.push({t,page:S.page});S.newLec="";S.markOpen=false;saveLectures(b,lecs);break}
+  }
+}
+document.addEventListener("keydown",e=>{
+  if(S.view!=="read"||/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName))return;
+  if(e.key==="PageDown")setPage(S.page+1);
+  if(e.key==="PageUp")setPage(S.page-1);
+});
+let rz;window.addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(S.view==="read"){setupReader()}},200)});
+boot();
+})();
+if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+</script>
+</body>
+</html>
