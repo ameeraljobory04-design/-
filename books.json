@@ -1,13 +1,13 @@
 {
- "version": 1,
+ "version": 2,
  "books": [
   {
    "id": "oop",
    "title": "Object-Oriented Programming I (C++)",
    "subject": "البرمجة الكيانية",
    "color": "#5b7cf7",
-   "order": 1,
-   "pages": 28,
+   "order": 0,
+   "pages": 48,
    "lectures": [
     {
      "t": "Lecture 1 — Introduction to OOP",
@@ -16,9 +16,8 @@
     },
     {
      "t": "مراجعة وأسئلة — Lecture 1",
-     "sub": "Functions, references, overloading",
      "page": 5,
-     "short": "مراجعة"
+     "short": "مراجعة 1"
     },
     {
      "t": "Lecture 2 — C++ Fundamentals",
@@ -26,156 +25,271 @@
      "short": "L2"
     },
     {
-     "t": "Lecture 3 — Classes and Objects",
+     "t": "مراجعة وأسئلة — Lecture 2: Classes",
      "page": 14,
+     "short": "مراجعة 2"
+    },
+    {
+     "t": "Lecture 3 — Classes and Objects",
+     "page": 19,
      "short": "L3"
     },
     {
+     "t": "Lecture 3 (ملزمة ثانية) — Classes and Objects",
+     "page": 25,
+     "short": "L3 ب"
+    },
+    {
      "t": "Lecture 4 — Constructors & Access Modifiers",
-     "page": 20,
+     "page": 30,
      "short": "L4"
+    },
+    {
+     "t": "Practical Labs 1–4 — العملي",
+     "page": 39,
+     "short": "العملي"
     }
    ],
    "pageImages": [
     {
-     "src": "books/oop/01.jpg",
+     "src": "pages/oop/01.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/02.jpg",
+     "src": "pages/oop/02.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/03.jpg",
+     "src": "pages/oop/03.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/04.jpg",
+     "src": "pages/oop/04.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/05.jpg",
+     "src": "pages/oop/05.jpg",
      "w": 1365,
      "h": 1930
     },
     {
-     "src": "books/oop/06.jpg",
+     "src": "pages/oop/06.jpg",
      "w": 1365,
      "h": 1930
     },
     {
-     "src": "books/oop/07.jpg",
+     "src": "pages/oop/07.jpg",
      "w": 1365,
      "h": 1930
     },
     {
-     "src": "books/oop/08.jpg",
+     "src": "pages/oop/08.jpg",
      "w": 1365,
      "h": 1930
     },
     {
-     "src": "books/oop/09.jpg",
+     "src": "pages/oop/09.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/10.jpg",
+     "src": "pages/oop/10.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/11.jpg",
+     "src": "pages/oop/11.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/12.jpg",
+     "src": "pages/oop/12.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/13.jpg",
+     "src": "pages/oop/13.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/14.jpg",
+     "src": "pages/oop/14.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/15.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/16.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/17.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/18.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/19.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/15.jpg",
+     "src": "pages/oop/20.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/16.jpg",
+     "src": "pages/oop/21.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/17.jpg",
+     "src": "pages/oop/22.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/18.jpg",
+     "src": "pages/oop/23.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/19.jpg",
+     "src": "pages/oop/24.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/20.jpg",
+     "src": "pages/oop/25.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/26.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/27.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/28.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/29.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/30.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/21.jpg",
+     "src": "pages/oop/31.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/22.jpg",
+     "src": "pages/oop/32.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/23.jpg",
+     "src": "pages/oop/33.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/24.jpg",
+     "src": "pages/oop/34.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/25.jpg",
+     "src": "pages/oop/35.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/26.jpg",
+     "src": "pages/oop/36.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/27.jpg",
+     "src": "pages/oop/37.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/oop/28.jpg",
+     "src": "pages/oop/38.jpg",
      "w": 1403,
      "h": 1815
+    },
+    {
+     "src": "pages/oop/39.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/40.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/41.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/42.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/43.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/44.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/45.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/46.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/47.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/oop/48.jpg",
+     "w": 1398,
+     "h": 1977
     }
    ]
   },
@@ -184,8 +298,8 @@
    "title": "Programming with Python",
    "subject": "البايثون",
    "color": "#ffb547",
-   "order": 2,
-   "pages": 63,
+   "order": 1,
+   "pages": 83,
    "lectures": [
     {
      "t": "Lecture 1 — Compilers & Interpreters",
@@ -211,321 +325,441 @@
      "t": "Lecture 5 — Python Lists (slides)",
      "page": 46,
      "short": "L5"
+    },
+    {
+     "t": "Lecture 6 — Strings",
+     "page": 64,
+     "short": "L6"
+    },
+    {
+     "t": "Lecture 7 — Tuples",
+     "page": 71,
+     "short": "L7"
+    },
+    {
+     "t": "Lecture 8 — Dictionaries",
+     "page": 75,
+     "short": "L8"
+    },
+    {
+     "t": "Lecture 9 — Sets",
+     "page": 79,
+     "short": "L9"
     }
    ],
    "pageImages": [
     {
-     "src": "books/python/01.jpg",
+     "src": "pages/python/01.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/02.jpg",
+     "src": "pages/python/02.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/03.jpg",
+     "src": "pages/python/03.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/04.jpg",
+     "src": "pages/python/04.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/05.jpg",
+     "src": "pages/python/05.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/06.jpg",
+     "src": "pages/python/06.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/07.jpg",
+     "src": "pages/python/07.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/08.jpg",
+     "src": "pages/python/08.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/09.jpg",
+     "src": "pages/python/09.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/10.jpg",
+     "src": "pages/python/10.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/11.jpg",
+     "src": "pages/python/11.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/12.jpg",
+     "src": "pages/python/12.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/13.jpg",
+     "src": "pages/python/13.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/14.jpg",
+     "src": "pages/python/14.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/15.jpg",
+     "src": "pages/python/15.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/16.jpg",
+     "src": "pages/python/16.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/17.jpg",
+     "src": "pages/python/17.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/18.jpg",
+     "src": "pages/python/18.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/19.jpg",
+     "src": "pages/python/19.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/20.jpg",
+     "src": "pages/python/20.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/21.jpg",
+     "src": "pages/python/21.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/22.jpg",
+     "src": "pages/python/22.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/23.jpg",
+     "src": "pages/python/23.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/24.jpg",
+     "src": "pages/python/24.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/25.jpg",
+     "src": "pages/python/25.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/26.jpg",
+     "src": "pages/python/26.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/27.jpg",
+     "src": "pages/python/27.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/28.jpg",
+     "src": "pages/python/28.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/29.jpg",
+     "src": "pages/python/29.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/30.jpg",
+     "src": "pages/python/30.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/31.jpg",
+     "src": "pages/python/31.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/32.jpg",
+     "src": "pages/python/32.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/33.jpg",
+     "src": "pages/python/33.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/34.jpg",
+     "src": "pages/python/34.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/35.jpg",
+     "src": "pages/python/35.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/36.jpg",
+     "src": "pages/python/36.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/37.jpg",
+     "src": "pages/python/37.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/38.jpg",
+     "src": "pages/python/38.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/39.jpg",
+     "src": "pages/python/39.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/40.jpg",
+     "src": "pages/python/40.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/41.jpg",
+     "src": "pages/python/41.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/42.jpg",
+     "src": "pages/python/42.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/43.jpg",
+     "src": "pages/python/43.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/44.jpg",
+     "src": "pages/python/44.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/45.jpg",
+     "src": "pages/python/45.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/46.jpg",
+     "src": "pages/python/46.jpg",
      "w": 1400,
      "h": 1050
     },
     {
-     "src": "books/python/47.jpg",
+     "src": "pages/python/47.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/48.jpg",
+     "src": "pages/python/48.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/49.jpg",
+     "src": "pages/python/49.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/50.jpg",
+     "src": "pages/python/50.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/51.jpg",
+     "src": "pages/python/51.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/52.jpg",
+     "src": "pages/python/52.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/53.jpg",
+     "src": "pages/python/53.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/54.jpg",
+     "src": "pages/python/54.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/55.jpg",
+     "src": "pages/python/55.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/56.jpg",
+     "src": "pages/python/56.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/57.jpg",
+     "src": "pages/python/57.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/58.jpg",
+     "src": "pages/python/58.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/59.jpg",
+     "src": "pages/python/59.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/60.jpg",
+     "src": "pages/python/60.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/61.jpg",
+     "src": "pages/python/61.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/62.jpg",
+     "src": "pages/python/62.jpg",
      "w": 1403,
      "h": 1815
     },
     {
-     "src": "books/python/63.jpg",
+     "src": "pages/python/63.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/64.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/65.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/66.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/67.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/68.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/69.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/70.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/71.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/72.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/73.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/74.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/75.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/76.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/77.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/78.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/79.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/80.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/81.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/82.jpg",
+     "w": 1403,
+     "h": 1815
+    },
+    {
+     "src": "pages/python/83.jpg",
      "w": 1403,
      "h": 1815
     }
@@ -536,7 +770,7 @@
    "title": "جرائم البعث",
    "subject": "جرائم البعث",
    "color": "#ff7a9c",
-   "order": 3,
+   "order": 2,
    "pages": 3,
    "lectures": [
     {
@@ -548,17 +782,17 @@
    ],
    "pageImages": [
     {
-     "src": "books/baath/01.jpg",
+     "src": "pages/baath/01.jpg",
      "w": 1406,
      "h": 1989
     },
     {
-     "src": "books/baath/02.jpg",
+     "src": "pages/baath/02.jpg",
      "w": 1406,
      "h": 1989
     },
     {
-     "src": "books/baath/03.jpg",
+     "src": "pages/baath/03.jpg",
      "w": 1406,
      "h": 1989
     }
@@ -566,183 +800,245 @@
   },
   {
    "id": "math",
-   "title": "الرياضيات",
+   "title": "شرح ملزمة الرياضيات",
    "subject": "الرياضيات",
    "color": "#4cc38a",
-   "order": 4,
-   "pages": 29,
+   "order": 3,
+   "pages": 32,
    "lectures": [
     {
-     "t": "Set Theory — نظرية المجموعات",
+     "t": "نظرية المجموعات — Set Theory",
      "page": 1,
      "short": "L1"
     },
     {
-     "t": "Functions — الدوال، المجال والمجال المقابل",
-     "page": 8,
+     "t": "الدوال: المجال والمدى — Functions",
+     "page": 5,
      "short": "L2"
     },
     {
-     "t": "Limits — الغايات",
-     "page": 14,
+     "t": "الغايات — Limits",
+     "page": 9,
      "short": "L3"
     },
     {
-     "t": "Coordinates in the Plane — المسافة والميل والمستقيم",
-     "page": 20,
+     "t": "المستوى الإحداثي والمسافة",
+     "page": 14,
      "short": "L4"
     },
     {
-     "t": "Quadratic Equations — المعادلات التربيعية",
-     "page": 28,
+     "t": "المستقيم: الميل والمعادلة",
+     "page": 16,
      "short": "L5"
+    },
+    {
+     "t": "المعادلة من الدرجة الثانية",
+     "page": 20,
+     "short": "L6"
+    },
+    {
+     "t": "أغلاط الملزمة + ورقة القوانين",
+     "page": 23,
+     "short": "قوانين"
+    },
+    {
+     "t": "الأسئلة والأجوبة — Questions & Answers",
+     "page": 25,
+     "short": "أسئلة"
     }
    ],
    "pageImages": [
     {
-     "src": "books/math/01.jpg",
-     "w": 1406,
+     "src": "pages/math/01.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/02.jpg",
-     "w": 1406,
+     "src": "pages/math/02.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/03.jpg",
-     "w": 1406,
+     "src": "pages/math/03.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/04.jpg",
-     "w": 1406,
+     "src": "pages/math/04.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/05.jpg",
-     "w": 1406,
+     "src": "pages/math/05.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/06.jpg",
-     "w": 1406,
+     "src": "pages/math/06.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/07.jpg",
-     "w": 1406,
+     "src": "pages/math/07.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/08.jpg",
-     "w": 1406,
+     "src": "pages/math/08.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/09.jpg",
-     "w": 1406,
+     "src": "pages/math/09.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/10.jpg",
-     "w": 1406,
+     "src": "pages/math/10.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/11.jpg",
-     "w": 1406,
+     "src": "pages/math/11.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/12.jpg",
-     "w": 1406,
+     "src": "pages/math/12.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/13.jpg",
-     "w": 1406,
+     "src": "pages/math/13.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/14.jpg",
-     "w": 1406,
+     "src": "pages/math/14.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/15.jpg",
-     "w": 1406,
+     "src": "pages/math/15.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/16.jpg",
-     "w": 1406,
+     "src": "pages/math/16.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/17.jpg",
-     "w": 1406,
+     "src": "pages/math/17.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/18.jpg",
-     "w": 1406,
+     "src": "pages/math/18.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/19.jpg",
-     "w": 1406,
+     "src": "pages/math/19.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/20.jpg",
-     "w": 1406,
+     "src": "pages/math/20.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/21.jpg",
-     "w": 1406,
+     "src": "pages/math/21.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/22.jpg",
-     "w": 1406,
+     "src": "pages/math/22.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/23.jpg",
-     "w": 1406,
+     "src": "pages/math/23.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/24.jpg",
-     "w": 1406,
+     "src": "pages/math/24.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/25.jpg",
-     "w": 1406,
+     "src": "pages/math/25.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/26.jpg",
-     "w": 1406,
+     "src": "pages/math/26.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/27.jpg",
-     "w": 1406,
+     "src": "pages/math/27.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/28.jpg",
-     "w": 1406,
+     "src": "pages/math/28.jpg",
+     "w": 1405,
      "h": 1988
     },
     {
-     "src": "books/math/29.jpg",
-     "w": 1406,
+     "src": "pages/math/29.jpg",
+     "w": 1405,
      "h": 1988
+    },
+    {
+     "src": "pages/math/30.jpg",
+     "w": 1405,
+     "h": 1988
+    },
+    {
+     "src": "pages/math/31.jpg",
+     "w": 1405,
+     "h": 1988
+    },
+    {
+     "src": "pages/math/32.jpg",
+     "w": 1405,
+     "h": 1988
+    }
+   ]
+  },
+  {
+   "id": "db",
+   "title": "Databases",
+   "subject": "قواعد البيانات",
+   "color": "#36b3d9",
+   "order": 4,
+   "pages": 3,
+   "lectures": [
+    {
+     "t": "Lecture 1 — Introduction to Database Systems & the Relational Model",
+     "page": 1,
+     "short": "L1"
+    }
+   ],
+   "pageImages": [
+    {
+     "src": "pages/db/01.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/db/02.jpg",
+     "w": 1398,
+     "h": 1977
+    },
+    {
+     "src": "pages/db/03.jpg",
+     "w": 1398,
+     "h": 1977
     }
    ]
   },
@@ -752,209 +1048,29 @@
    "subject": "هياكل البيانات",
    "color": "#8b6cf0",
    "order": 5,
-   "pages": 35,
+   "pages": 3,
    "lectures": [
     {
-     "t": "Introduction & Arrays — المقدمة والمصفوفات",
+     "t": "Lecture 1 — Introduction to Data Structures, Complexity & Stacks",
      "page": 1,
      "short": "L1"
-    },
-    {
-     "t": "Algorithm Analysis (Big O) & ADT",
-     "page": 9,
-     "short": "L2"
-    },
-    {
-     "t": "Stack — المكدس",
-     "page": 16,
-     "short": "L3"
-    },
-    {
-     "t": "Applications of Stacks — infix/postfix وغيرها",
-     "page": 22,
-     "short": "L4"
-    },
-    {
-     "t": "Exercises — تمارين الـ Stack",
-     "page": 34,
-     "short": "تمارين"
     }
    ],
    "pageImages": [
     {
-     "src": "books/ds/01.jpg",
-     "w": 1365,
-     "h": 1930
+     "src": "pages/ds/01.jpg",
+     "w": 1398,
+     "h": 1977
     },
     {
-     "src": "books/ds/02.jpg",
-     "w": 1365,
-     "h": 1930
+     "src": "pages/ds/02.jpg",
+     "w": 1398,
+     "h": 1977
     },
     {
-     "src": "books/ds/03.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/04.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/05.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/06.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/07.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/08.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/09.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/10.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/11.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/12.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/13.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/14.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/15.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/16.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/17.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/18.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/19.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/20.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/21.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/22.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/23.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/24.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/25.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/26.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/27.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/28.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/29.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/30.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/31.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/32.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/33.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/34.jpg",
-     "w": 1365,
-     "h": 1930
-    },
-    {
-     "src": "books/ds/35.jpg",
-     "w": 1365,
-     "h": 1930
+     "src": "pages/ds/03.jpg",
+     "w": 1398,
+     "h": 1977
     }
    ]
   }

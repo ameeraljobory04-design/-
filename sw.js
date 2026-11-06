@@ -1,5 +1,5 @@
 // الملازم — service worker: يخلي التطبيق يشتغل بدون إنترنت
-const VERSION = "almalazim-v1";
+const VERSION = "almalazim-v2";
 const SHELL = [
   "./", "index.html", "books.json", "manifest.webmanifest",
   "vendor/pdf.min.js", "vendor/pdf.worker.min.js",
