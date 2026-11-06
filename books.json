@@ -1,5 +1,5 @@
 {
- "version": 3,
+ "version": 4,
  "books": [
   {
    "id": "oop",
@@ -1334,6 +1334,291 @@
     },
     {
      "src": "pages/oopcode/45.jpg",
+     "w": 1400,
+     "h": 1982
+    }
+   ]
+  },
+  {
+   "id": "pycode",
+   "title": "شرح الكود سطر بسطر",
+   "subject": "البايثون",
+   "color": "#ffb547",
+   "order": 0.6,
+   "section": "amir",
+   "folder": "python",
+   "folderName": "البايثون",
+   "pages": 46,
+   "lectures": [
+    {
+     "t": "Lecture 2 — العمليات (Operators)",
+     "page": 4,
+     "short": "L2"
+    },
+    {
+     "t": "Lecture 3 — الأنواع والمتغيرات والطباعة",
+     "page": 12,
+     "short": "L3"
+    },
+    {
+     "t": "Lecture 4 — Lists (الكواكب)",
+     "page": 23,
+     "short": "L4"
+    },
+    {
+     "t": "Lecture 5 — Python Lists",
+     "page": 26,
+     "short": "L5"
+    },
+    {
+     "t": "Lecture 6 — Strings",
+     "page": 34,
+     "short": "L6"
+    },
+    {
+     "t": "Lecture 7 — Tuples",
+     "page": 39,
+     "short": "L7"
+    },
+    {
+     "t": "Lecture 8 — Dictionaries",
+     "page": 42,
+     "short": "L8"
+    },
+    {
+     "t": "Lecture 9 — Sets",
+     "page": 45,
+     "short": "L9"
+    }
+   ],
+   "pageImages": [
+    {
+     "src": "pages/pycode/01.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/02.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/03.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/04.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/05.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/06.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/07.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/08.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/09.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/10.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/11.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/12.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/13.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/14.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/15.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/16.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/17.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/18.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/19.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/20.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/21.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/22.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/23.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/24.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/25.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/26.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/27.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/28.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/29.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/30.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/31.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/32.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/33.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/34.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/35.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/36.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/37.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/38.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/39.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/40.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/41.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/42.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/43.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/44.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/45.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/46.jpg",
      "w": 1400,
      "h": 1982
     }
