@@ -73,6 +73,13 @@ h1,h2,h3{margin:0;font-weight:600;text-wrap:balance;line-height:1.3}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .tile{background:var(--surface);border-radius:18px;box-shadow:var(--shadow);padding:16px 10px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;min-width:0;transition:transform .15s}
 .tile:hover{transform:translateY(-2px)}
+.tile.wide{grid-column:1/-1;flex-direction:row;justify-content:flex-start;gap:14px;padding:14px 16px;text-align:start}
+.tile.wide .ic{width:64px;height:54px;flex:none}
+.tile.wide .lbl{flex:1}
+.tile.wide .go{color:var(--muted);flex:none}
+.tile.wide .go svg{width:18px;height:18px}
+.tile.sec{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff}
+.tile.sec .lbl{color:rgba(255,255,255,.75)}.tile.sec .lbl b{color:#fff}.tile.sec .go{color:#fff}
 .tile .ic{width:76px;height:64px;display:grid;place-items:center}
 .tile .ic svg{width:100%;height:100%}
 .tile .lbl{font-size:12.5px;color:var(--muted);line-height:1.35}
@@ -200,6 +207,8 @@ const COLORS=["#5b7cf7","#ffb547","#4cc38a","#ff7a9c","#8b6cf0","#36b3d9"];
 const N="#2b2f7a";
 const PEAR=`<svg viewBox="0 0 164.54 264.95" aria-hidden="true"><g> <g> <g> <path fill="#121638" d="M121.12,258.27c-24.1,9.8-54.7,8.4-78.4-1.5-5.9-2.4-11.1-6.6-15.9-10.8-13.1-11.4-21.9-27-25.1-44.1-1.4-7.4-2.2-14.6-1.4-22,1.5-12.7,6.6-24.2,13.8-34.6l16.6-24.1c3.3-4.8,4.6-10.5,6.1-16.2,3.4-13.1,6.7-25.8,11-38.6,3.5-10.6,10.7-14.5,21.6-18.2-1.6-10.2-4.3-20.8-10.9-28.7-1.5-1.8-4.1-3.6-4.7-6.2-1-4.3,1.4-9.2,4.4-12,1.6-1.6,3.9-1.6,5.5-.5,8.6,6.2,12.3,22.1,16,33.1l4,12c17.2-.6,31.2,10.2,38.4,25.1,3.7,7.7,5.7,15.5,7.5,23.8l2,9.4c3.4,9.7,7.8,18.5,12.7,27.4l13.7,25.1,4,13.9c4.4,15.5,2.7,31.2-2.4,46.4-6.4,19-19.8,33.7-38.5,41.3h0Z"/> <path fill="#e5d643" d="M157.62,214.97c-16,48.5-69.5,55.5-113.5,39.9-19.4-10.4-33.7-27.9-39-49.5-1.9-7.9-3.1-16.2-2.3-24.3,1.3-13.1,6.8-24.8,14.1-35.4l16.1-23.4c4-5.8,5.3-12.8,7.2-19.7,3.5-13,6.5-25.8,11.3-38.5,4.5-12.1,28.6-18.8,44.6-14,10.9,3.3,19.2,11.8,23.9,21.8,7.9,16.7,7,31,13.9,44.1l17.9,33.7c3.2,6,5.4,11.3,7.2,17.7,4.3,16,4,31.7-1.2,47.4h0l-.2.2Z"/> <path fill="#644125" d="M81.12,46.07l-9.4,1.4-4-16.3c-1.8-7.2-6.5-12-11-17.9-2-2.6,1.2-10.5,4.4-10.6,4.4.9,6.9,6.3,8.5,10,4.7,10.9,7.6,21.8,11.5,33.4h0Z"/> <path fill="#f1929a" d="M125.92,185.17c-.7-.1-1.4-.3-2.1-.5s-1.3-.5-1.8-.9c-17.9-13.1-32.6-33.2-44.1-52-1.6,16.4-4.7,32.8-9.6,48.6-1.1,3.5-6.8,21.2-8.6,21.2-3.3,0-12.3-15.3-14.3-19-6-11.3-9-22.8-7.2-35.5,0-1-5.6,3.1-6.7,4-9.2,7.1-16.3,16.7-21.3,27.1l-2.1,1.6c-.2-1.1-.1-2.2.3-3.6,4-12.9,10.8-24.2,21.3-33,13-10.8,29.7-18.3,47.1-15.5,16.6,2.7,30.9,14.1,39.7,27.9,5.8,9.2,8.2,19.4,9.5,29.6h-.1Z"/> <g> <path fill="#020101" d="M125.92,185.17c2.6,19.3-5.2,38.4-19.7,51.8-9.3,8.6-20.4,14.6-32.4,18.4-8.8,2.8-17.6,1.7-25.3-3-7.5-4.5-14.5-8.8-20.9-14.8-9.4-8.8-16.8-19.3-20.4-31.8-1.9-6.6-1.6-20.5.9-26.1,6.6-14.5,16.9-27.7,31.9-35.7-1.8,11-1.1,21.1,3.3,30.8,3.9,9.4,9.1,17.7,16.2,26,10-23.2,15.5-47.7,17.5-73.2,12.8,22.8,29,42.5,48.9,57.6h0Z"/> <g> <path fill="#fefefd" d="M83.92,178.87c-2.6,6.4-3.1,13.8,1.1,19.7,5.5,8.2,16.8,10.1,24.1,3.7,6-5.2,7.6-12.6,5.8-20.8,6.3,6.2,1.3,18.6-5.6,24-1.2,1.1-2.8,2-4.7,2.6-7,1.9-15.1,1-21.5-3.1-5.9-3.8-8.7-14.4-7-17.9,1.6-3.3,3.7-6.6,7-8.3.2-.5.6-.5.8,0h0v.1Z"/> <path fill="#d14450" d="M113.22,192.27c-1.8,6.7-7.2,11.6-13.8,11.9-6.6.3-12.1-3.7-14.6-10.2,1-2.4,3.3-4.1,6.5-5.8.5,4.6,3.1,8,7.5,8.1s8.1-3,8.5-8.2c2.6.6,4.5,2.2,5.9,4.2h0Z"/> <path fill="#80191c" d="M28.52,188.57l-.8-.3c-2.3,8.1-9.9,4.8-10.6-2.2-.8.9-1.5,1.6-2.8,1.1,0-4.2.1-8.7,2.6-12.2l1.1.9c1.2,6.2,6.8-3.2.2-1l-1.4-.6c.7-2.3,3.1-4.4,5.5-4.5,6.3-.3,8.2,10.3,6.1,18.8h.1Z"/> <path fill="#d24854" d="M28.52,188.57c-.9,3.5-2.4,8.5-6.7,9-3.9.5-6.4-4.1-6.9-7.1l-.5-2.1c.1-.3,0-.9,0-1.2,1-1.2,2-2.5,4-3.2.3,2.8.5,5.7,2.8,7.2,1.4.9,3.1.5,4.1-.4s1.6-2.5,2-4.2c1-.3,1.6,1.1,1.3,2h-.1Z"/> <path fill="#faf9f9" d="M29.72,191.37c.3.2.7.7.5,1.3l-2.3,6c-.9,2.4-3.1,3.6-5.1,4.1-2.5.7-4.4-.6-6.5-1.7-1.6-1.1-2.5-2.4-2.5-3.9-3.1-7.5-5.5-17.3.6-22.3-2,6.5-2.8,13.2-.1,19.2,1.7,3.8,5.5,6.6,9.4,5,3.3-1.3,4.7-4.8,6-7.7h0Z"/> <path fill="#f9f4f4" d="M17.02,174.97v-.6c1.2-1,3.2-1.6,4.4-.8,1.5.9,1.6,2.8.9,4.1-.8,1.6-2.6,2.1-4,1.4-1.7-.8-1.7-2.7-1.4-4h0l.1-.1Z"/> <path fill="#a5a4a2" d="M83.92,178.87h-.8c0-.5.3-.7.7-1.1.5-.5,1,.2.6.7-.2.3-.4.3-.5.4h0Z"/> <path fill="#80191c" d="M14.92,190.47c-.1-.7-.9-1.2-.5-2.1.7.4.7,1.3.5,2.1Z"/> <g> <path fill="#7f181b" d="M113.22,192.27c-1.1.3-2.1-.2-3.1-1.5l-1.6-1c-2.8,9.9-15.3,10.6-18.3.5l-2.4,1.7c-.9,1.4-1.9,2-3,1.9-2.3-6-.7-12.7,3.2-18,7.5-4.4,16.6-3.4,23.1,2.2,2.4,4.5,3.4,9.4,2,14.1h0l.1.1Z"/> <circle fill="#fcfafa" cx="92.82" cy="180.57" r="3.7"/> </g> <g> <path fill="#fcded0" d="M76.12,187.17l.9,1.4c-.7,14.5,12.6,21.6,25.9,18.7l1.7.9c1.8-1,3.5-1.6,5.3-1.9,6.6-3.3,10.7-9.4,14-16.3,1.3,32.6-24.4,56.5-54.1,64.1-5.9,1.5-12,.6-17.3-2.1-19.2-9.9-35.2-23.9-42.6-44.5-1.8-5.2-2.2-10.5-1.5-16.1,1.6,2.8,2.2,5.5,4.5,7.2,1.1.6,2.2,1.4,3.1,2.6l.7-.6c7.3,3.8,11.6-2.7,12.9-9.2.6-2.5.6-5.2,2.4-7.6-.3-5.1-.7-10-3-14.5-1.9-3.7-5.6-5.6-9.7-3.9.7-1.8,1.9-3,3-4.3,4.2,1.6,7.2,4,10.6,7.1-.1-5-3.8-8.1-8.7-9.1,4-4.5,8.2-7.9,13.2-11.6-1.4,11.6.5,22.2,5.7,32.4,4.5,8.9,9.3,17.5,17.3,24.7,10.1-22.6,15.7-45.7,18.2-69.5,6.3,9.5,11.4,17.9,18.6,25.8l-10.3.7c-4.1.9-8,3.3-9.1,8,6.7-4.3,13.8-6,21.3-6.4l3.9,5c-13.1-3.2-25.1,4.8-27.6,17.7-.1.7.3,1.3.7,1.3h0Z"/> <path fill="#585350" d="M16.22,201.17c-1.3-.6-2.5-1.3-3.1-2.6.5-.1.7-.7.6-1.3l2.5,3.9h0Z"/> <path fill="#867e79" d="M109.92,206.27c-1.7.8-3.4,1.6-5.3,1.9,1.1-1.6,3.3-1.4,4.7-2.6l.6.7h0Z"/> <path fill="#070605" d="M72.82,229.67c-11.1,7.7-28.7,7-35-1.3-.4-.6.5-1.3,1.1-1.3.7.1,1,.7,1.8,1.2,9.1,6.7,21.8,6,30.4-1.2.9-.7,1.9-.6,2.3,0,.4.6.3,1.9-.6,2.5h0v.1Z"/> </g> </g> </g> </g> </g> </g></svg>`;
 const IC={
+ folder:`<svg viewBox="0 0 80 66"><path d="M10 16a5 5 0 0 1 5-5h16l6 7h28a5 5 0 0 1 5 5v28a5 5 0 0 1-5 5H15a5 5 0 0 1-5-5z" fill="#ffd36b" stroke="${N}" stroke-width="2" stroke-linejoin="round"/><path d="M10 26h60" stroke="${N}" stroke-width="2"/><rect x="22" y="33" width="22" height="4" rx="2" fill="#5b7cf7"/><rect x="22" y="41" width="14" height="4" rx="2" fill="#ff7a9c"/></svg>`,
+ star:`<svg viewBox="0 0 80 66"><rect x="14" y="8" width="44" height="52" rx="6" fill="#fff" stroke="${N}" stroke-width="2"/><path d="M24 22h24M24 30h18M24 38h22" stroke="#5b7cf7" stroke-width="2.4" stroke-linecap="round"/><circle cx="58" cy="46" r="13" fill="#ffd36b" stroke="${N}" stroke-width="2"/><path d="M58 39l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="#fff" stroke="${N}" stroke-width="1.2" stroke-linejoin="round"/></svg>`,
  cpp:`<svg viewBox="0 0 80 66"><rect x="10" y="10" width="44" height="40" rx="6" fill="#bfe0ff" stroke="${N}" stroke-width="2"/><rect x="18" y="6" width="44" height="40" rx="6" fill="#fff" stroke="${N}" stroke-width="2"/><path d="M34 20a8 8 0 1 0 0 12" fill="none" stroke="#5b7cf7" stroke-width="3" stroke-linecap="round"/><path d="M44 26h8M48 22v8M55 26h6M58 23v6" stroke="#ff7a9c" stroke-width="2.4" stroke-linecap="round"/><path d="M8 54h58" stroke="${N}" stroke-width="2" stroke-linecap="round"/><circle cx="66" cy="54" r="5" fill="#ffd36b" stroke="${N}" stroke-width="2"/></svg>`,
  py:`<svg viewBox="0 0 80 66"><path d="M40 8c-10 0-12 4-12 8v6h13v3H22c-6 0-10 4-10 12s4 12 9 12h5v-7c0-5 4-9 9-9h11c4 0 7-3 7-7V16c0-4-4-8-13-8z" fill="#8ec5ff" stroke="${N}" stroke-width="2" stroke-linejoin="round"/><path d="M40 58c10 0 12-4 12-8v-6H39v-3h19c6 0 10-4 10-12s-4-12-9-12h-5v7c0 5-4 9-9 9H34c-4 0-7 3-7 7v10c0 4 4 8 13 8z" fill="#ffd36b" stroke="${N}" stroke-width="2" stroke-linejoin="round"/><circle cx="34" cy="15" r="2.2" fill="${N}"/><circle cx="46" cy="51" r="2.2" fill="${N}"/></svg>`,
  book:`<svg viewBox="0 0 80 66"><path d="M14 14c8-4 17-4 26 2v40c-9-6-18-6-26-2z" fill="#ffd0de" stroke="${N}" stroke-width="2" stroke-linejoin="round"/><path d="M66 14c-8-4-17-4-26 2v40c9-6 18-6 26-2z" fill="#fff" stroke="${N}" stroke-width="2" stroke-linejoin="round"/><path d="M46 26c5-2 9-2 14 0M46 34c5-2 9-2 14 0M46 42c5-2 9-2 14 0" stroke="#5b7cf7" stroke-width="2" stroke-linecap="round"/><path d="M58 6v14l4-3 4 3V6z" fill="#ff7a9c" stroke="${N}" stroke-width="2" stroke-linejoin="round"/></svg>`,
@@ -274,8 +283,14 @@ function route(h){
     S.bookId=b.id;S.confirmDel=false;
     if(m[1]==="book"){S.view="book";S.q="";render()}else{const was=S.view==="read"&&S.bookId===b.id;S.view="read";if(!was){S.page=lastPage(b.id);S.jump=S.page;S.drawerOpen=false;S.markOpen=false}render();ensurePdf(b)}
     return}
+  if(h==="amir"){S.view="amir";render();return}
+  const fm=h.match(/^amir-([A-Za-z0-9-]+)$/);
+  if(fm){S.view="folder";S.folder=fm[1];render();return}
   S.view=(h==="progress"||h==="add")?h:"home";S.addMsg="";render();
 }
+const SECTION_NAME="ملازم امير مسويها";
+function secBooks(){return S.books.filter(b=>b.section==="amir")}
+function folders(){const m=new Map();secBooks().forEach(b=>{const k=b.folder||"other";if(!m.has(k))m.set(k,{id:k,name:b.folderName||b.subject,books:[]});m.get(k).books.push(b)});return [...m.values()]}
 window.addEventListener("hashchange",()=>route());
 function go(h){if(location.hash.replace("#","")!==h)location.hash=h;else route(h)}
 
@@ -384,19 +399,39 @@ function homeView(){
   let h=`<div class="screen"><header class="hero"><div class="bar"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span><span class="avatar">${PEAR}</span></div>
     <h1>الملازم</h1><p>${S.ready?`${S.books.length} ملازم · خلصت ${done} من ${total} محاضرة`:"جاري التحميل…"}</p></header>
     <div class="sheet">`;
-  if(S.ready&&!S.books.length){h+=`<div class="empty">${IC.upload}<div>ماكو ملازم بعد. اضغط الزر الأزرق وضيف أول ملزمة.</div></div>`}
+  if(S.ready&&!S.books.length&&false){h+=`<div class="empty">${IC.upload}<div>ماكو ملازم بعد. اضغط الزر الأزرق وضيف أول ملزمة.</div></div>`}
   else{
     h+=`<div class="grid">`;
-    S.books.forEach(b=>{const p=pct(b);h+=`<button class="tile" data-go="book-${esc(b.id)}"><span class="ic">${bookIcon(b)}</span><span class="lbl"><b>${esc(b.subject)}</b>${doneCount(b)}/${(b.lectures||[]).length} محاضرات</span><span class="mini"><i style="width:${p}%"></i></span></button>`});
+    S.books.filter(b=>!b.section).forEach(b=>{const p=pct(b);h+=`<button class="tile" data-go="book-${esc(b.id)}"><span class="ic">${bookIcon(b)}</span><span class="lbl"><b>${esc(b.subject)}</b>${doneCount(b)}/${(b.lectures||[]).length} محاضرات</span><span class="mini"><i style="width:${p}%"></i></span></button>`});
+    const sb=secBooks();
+    h+=`<button class="tile wide sec" data-go="amir"><span class="ic">${IC.star}</span><span class="lbl"><b>${SECTION_NAME}</b>${folders().length} فولدر · ${sb.length} ملازم</span><span class="go">${I.next}</span></button>`;
     h+=`</div>`;
   }
+  h+=`</div></div>`+nav(I.plus,"goAdd","ضيف ملزمة");
+  return h;
+}
+function amirView(){
+  const fs=folders();
+  let h=`<div class="screen"><header class="hero"><div class="bar"><button class="burger" data-go="" aria-label="رجوع للرئيسية"><i></i><i></i><i></i></button><span class="avatar">${PEAR}</span></div>
+    <h1>${SECTION_NAME}</h1><p>${fs.length} فولدر · ${secBooks().length} ملازم</p></header><div class="sheet">`;
+  if(!fs.length)h+=`<div class="empty">ماكو ملازم هنا بعد.</div>`;
+  else{h+=`<div class="grid">`;fs.forEach(f=>{h+=`<button class="tile" data-go="amir-${esc(f.id)}"><span class="ic">${IC.folder}</span><span class="lbl"><b>${esc(f.name)}</b>${f.books.length} ملزمة</span></button>`});h+=`</div>`}
+  h+=`</div></div>`+nav(I.plus,"goAdd","ضيف ملزمة");
+  return h;
+}
+function folderView(){
+  const f=folders().find(x=>x.id===S.folder);
+  if(!f)return amirView();
+  let h=`<div class="screen"><div class="topbar"><button class="iconbtn" data-go="amir" aria-label="رجوع">${I.back}</button><span class="search" style="justify-content:center;font-weight:500;color:var(--fg)">${SECTION_NAME}</span><span class="iconbtn"></span></div>
+    <div class="summary"><span style="width:52px;height:44px;flex:none">${IC.folder}</span><div style="min-width:0"><h2>${esc(f.name)}</h2><div class="sub">${f.books.length} ملزمة</div></div></div><div class="list">`;
+  f.books.forEach(b=>{h+=`<button class="card" data-go="book-${esc(b.id)}"><span class="face" style="background:${esc(b.color||"#5b7cf7")}">${(b.lectures||[]).length}</span><span class="txt"><b>${esc(b.title)}</b><span class="price">${b.pages||""} صفحة<small>${doneCount(b)}/${(b.lectures||[]).length} محاضرات</small></span></span>${ring(pct(b),40)}</button>`});
   h+=`</div></div>`+nav(I.plus,"goAdd","ضيف ملزمة");
   return h;
 }
 function bookView(){
   const b=book();if(!b)return`<div class="loading">جاري التحميل…</div>`;
   const lecs=(b.lectures||[]).map((l,i)=>({...l,i})).filter(l=>!S.q||l.t.toLowerCase().includes(S.q.toLowerCase()));
-  let h=`<div class="screen"><div class="topbar"><button class="iconbtn" data-go="" aria-label="رجوع للرئيسية">${I.back}</button>
+  let h=`<div class="screen"><div class="topbar"><button class="iconbtn" data-go="${b.section?"amir-"+esc(b.folder||"other"):""}" aria-label="رجوع">${I.back}</button>
     <label class="search">${I.search}<input id="q" placeholder="ابحث بالمحاضرات" value="${esc(S.q)}"></label>
     <button class="iconbtn" data-act="askDel" aria-label="حذف الملزمة">${I.trash}</button></div>
     <div class="summary">${ring(pct(b),52)}<div style="min-width:0"><h2>${esc(b.subject)}</h2><div class="sub">${esc(b.title)} · <span class="ltr">${b.pages||"—"}</span> صفحة</div></div></div>`;
@@ -464,7 +499,7 @@ function render(){
   app.classList.toggle("wide",S.view==="read");
   const keep={};if(S.view==="add")["f_title","f_subject","f_subjectNew"].forEach(id=>{const el=document.getElementById(id);if(el)keep[id]=el.value});
   const file=$("#f_file")&&$("#f_file").files;
-  app.innerHTML=S.view==="book"?bookView():S.view==="read"?readView():S.view==="progress"?progressView():S.view==="add"?addView():homeView();
+  app.innerHTML=S.view==="amir"?amirView():S.view==="folder"?folderView():S.view==="book"?bookView():S.view==="read"?readView():S.view==="progress"?progressView():S.view==="add"?addView():homeView();
   Object.entries(keep).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.value=v});
   if(file&&file.length&&$("#f_file")){try{$("#f_file").files=file}catch(e){}}
   if(S.view==="add"&&$("#f_subject"))$("#newSubWrap").hidden=$("#f_subject").value!=="__new";

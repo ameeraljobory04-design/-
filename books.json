@@ -1,5 +1,5 @@
 {
- "version": 2,
+ "version": 3,
  "books": [
   {
    "id": "oop",
@@ -1071,6 +1071,271 @@
      "src": "pages/ds/03.jpg",
      "w": 1398,
      "h": 1977
+    }
+   ]
+  },
+  {
+   "id": "oopcode",
+   "title": "شرح الكود سطر بسطر",
+   "subject": "البرمجة الكيانية",
+   "color": "#1b0fb4",
+   "order": 0.5,
+   "section": "amir",
+   "folder": "oop",
+   "folderName": "البرمجة الكيانية",
+   "pages": 45,
+   "lectures": [
+    {
+     "t": "Lecture 1 — أول كلاس، والدوال",
+     "page": 3,
+     "short": "L1"
+    },
+    {
+     "t": "Lecture 2 — أساسيات C++ و struct",
+     "page": 13,
+     "short": "L2"
+    },
+    {
+     "t": "Lecture 3 — Classes and Objects",
+     "page": 19,
+     "short": "L3"
+    },
+    {
+     "t": "Lecture 4 — Constructors و Access Modifiers",
+     "page": 29,
+     "short": "L4"
+    },
+    {
+     "t": "العملي — Labs 1–4",
+     "page": 39,
+     "short": "العملي"
+    }
+   ],
+   "pageImages": [
+    {
+     "src": "pages/oopcode/01.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/02.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/03.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/04.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/05.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/06.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/07.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/08.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/09.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/10.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/11.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/12.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/13.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/14.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/15.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/16.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/17.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/18.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/19.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/20.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/21.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/22.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/23.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/24.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/25.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/26.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/27.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/28.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/29.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/30.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/31.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/32.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/33.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/34.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/35.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/36.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/37.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/38.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/39.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/40.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/41.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/42.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/43.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/44.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/oopcode/45.jpg",
+     "w": 1400,
+     "h": 1982
     }
    ]
   }
