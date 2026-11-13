@@ -1,5 +1,5 @@
 {
- "version": 4,
+ "version": 6,
  "books": [
   {
    "id": "oop",
@@ -1083,31 +1083,46 @@
    "section": "amir",
    "folder": "oop",
    "folderName": "البرمجة الكيانية",
-   "pages": 45,
+   "pages": 46,
    "lectures": [
     {
-     "t": "Lecture 1 — أول كلاس، والدوال",
+     "t": "Lecture 1 — Introduction to OOP",
      "page": 3,
      "short": "L1"
     },
     {
-     "t": "Lecture 2 — أساسيات C++ و struct",
-     "page": 13,
+     "t": "مراجعة وأسئلة — Lecture 1",
+     "page": 5,
+     "short": "مراجعة 1"
+    },
+    {
+     "t": "Lecture 2 — C++ Fundamentals",
+     "page": 14,
      "short": "L2"
     },
     {
+     "t": "مراجعة وأسئلة — Lecture 2: Classes",
+     "page": 17,
+     "short": "مراجعة 2"
+    },
+    {
      "t": "Lecture 3 — Classes and Objects",
-     "page": 19,
+     "page": 20,
      "short": "L3"
     },
     {
-     "t": "Lecture 4 — Constructors و Access Modifiers",
-     "page": 29,
+     "t": "Lecture 3 (ملزمة ثانية)",
+     "page": 24,
+     "short": "L3 ب"
+    },
+    {
+     "t": "Lecture 4 — Constructors & Access Modifiers",
+     "page": 30,
      "short": "L4"
     },
     {
-     "t": "العملي — Labs 1–4",
-     "page": 39,
+     "t": "Practical Labs 1–4 — العملي",
+     "page": 40,
      "short": "العملي"
     }
    ],
@@ -1336,6 +1351,11 @@
      "src": "pages/oopcode/45.jpg",
      "w": 1400,
      "h": 1982
+    },
+    {
+     "src": "pages/oopcode/46.jpg",
+     "w": 1400,
+     "h": 1982
     }
    ]
   },
@@ -1348,47 +1368,62 @@
    "section": "amir",
    "folder": "python",
    "folderName": "البايثون",
-   "pages": 46,
+   "pages": 58,
    "lectures": [
     {
-     "t": "Lecture 2 — العمليات (Operators)",
+     "t": "Lecture 1 — Compiler و Interpreter",
      "page": 4,
+     "short": "L1"
+    },
+    {
+     "t": "Lecture 2 — العمليات (Operators)",
+     "page": 5,
      "short": "L2"
     },
     {
      "t": "Lecture 3 — الأنواع والمتغيرات والطباعة",
-     "page": 12,
+     "page": 13,
      "short": "L3"
     },
     {
      "t": "Lecture 4 — Lists (الكواكب)",
-     "page": 23,
+     "page": 24,
      "short": "L4"
     },
     {
      "t": "Lecture 5 — Python Lists",
-     "page": 26,
+     "page": 27,
      "short": "L5"
     },
     {
      "t": "Lecture 6 — Strings",
-     "page": 34,
+     "page": 35,
      "short": "L6"
     },
     {
      "t": "Lecture 7 — Tuples",
-     "page": 39,
+     "page": 40,
      "short": "L7"
     },
     {
      "t": "Lecture 8 — Dictionaries",
-     "page": 42,
+     "page": 43,
      "short": "L8"
     },
     {
      "t": "Lecture 9 — Sets",
-     "page": 45,
+     "page": 47,
      "short": "L9"
+    },
+    {
+     "t": "Lecture 10 — Loops",
+     "page": 48,
+     "short": "L10"
+    },
+    {
+     "t": "Lecture 11 — Functions",
+     "page": 54,
+     "short": "L11"
     }
    ],
    "pageImages": [
@@ -1621,6 +1656,271 @@
      "src": "pages/pycode/46.jpg",
      "w": 1400,
      "h": 1982
+    },
+    {
+     "src": "pages/pycode/47.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/48.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/49.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/50.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/51.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/52.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/53.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/54.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/55.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/56.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/57.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/pycode/58.jpg",
+     "w": 1400,
+     "h": 1982
+    }
+   ]
+  },
+  {
+   "id": "mpy",
+   "title": "ملزمة مراجعة Python العملي",
+   "subject": "البايثون",
+   "color": "#ff7a9c",
+   "order": 0.7,
+   "section": "maryam",
+   "folder": "python",
+   "folderName": "البايثون",
+   "pages": 33,
+   "lectures": [
+    {
+     "t": "القسم 1 — Lists (القوائم)",
+     "page": 1,
+     "short": "Lists"
+    },
+    {
+     "t": "القسم 1 — Loops (الحلقات)",
+     "page": 9,
+     "short": "Loops"
+    },
+    {
+     "t": "القسم 2 — تدريب إضافي",
+     "page": 17,
+     "short": "تدريب"
+    },
+    {
+     "t": "القسم 3 — Input والأيام والمقارنة",
+     "page": 24,
+     "short": "Input"
+    },
+    {
+     "t": "أهم الأوامر والأخطاء الشائعة",
+     "page": 32,
+     "short": "أخطاء"
+    }
+   ],
+   "pageImages": [
+    {
+     "src": "pages/mpy/01.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/02.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/03.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/04.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/05.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/06.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/07.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/08.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/09.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/10.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/11.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/12.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/13.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/14.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/15.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/16.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/17.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/18.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/19.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/20.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/21.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/22.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/23.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/24.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/25.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/26.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/27.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/28.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/29.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/30.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/31.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/32.jpg",
+     "w": 1400,
+     "h": 1812
+    },
+    {
+     "src": "pages/mpy/33.jpg",
+     "w": 1400,
+     "h": 1812
     }
    ]
   }
