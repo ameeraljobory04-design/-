@@ -1,5 +1,5 @@
 {
- "version": 6,
+ "version": 7,
  "books": [
   {
    "id": "oop",
@@ -7,7 +7,7 @@
    "subject": "البرمجة الكيانية",
    "color": "#5b7cf7",
    "order": 0,
-   "pages": 48,
+   "pages": 52,
    "lectures": [
     {
      "t": "Lecture 1 — Introduction to OOP",
@@ -48,6 +48,16 @@
      "t": "Practical Labs 1–4 — العملي",
      "page": 39,
      "short": "العملي"
+    },
+    {
+     "t": "أسئلة محلولة — Circle Class",
+     "page": 49,
+     "short": "أسئلة 1"
+    },
+    {
+     "t": "أسئلة محلولة — Rectangle Class",
+     "page": 51,
+     "short": "أسئلة 2"
     }
    ],
    "pageImages": [
@@ -290,6 +300,26 @@
      "src": "pages/oop/48.jpg",
      "w": 1398,
      "h": 1977
+    },
+    {
+     "src": "pages/oop/49.jpg",
+     "w": 1400,
+     "h": 1981
+    },
+    {
+     "src": "pages/oop/50.jpg",
+     "w": 1400,
+     "h": 1981
+    },
+    {
+     "src": "pages/oop/51.jpg",
+     "w": 1400,
+     "h": 1981
+    },
+    {
+     "src": "pages/oop/52.jpg",
+     "w": 1400,
+     "h": 1981
     }
    ]
   },
