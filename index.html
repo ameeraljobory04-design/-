@@ -148,6 +148,30 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .ring circle{fill:none;stroke-width:6}
 .ring .bg{stroke:var(--line)}.ring .fg{stroke:var(--price);stroke-linecap:round;transition:stroke-dasharray .4s}
 .ring text{font-family:var(--f);font-size:13px;font-weight:600;fill:var(--fg)}
+.examcard{display:flex;align-items:center;gap:14px;width:100%;text-align:start;margin-bottom:16px;padding:16px 18px;border-radius:20px;color:#121638;background:#fff;border:1.5px solid #dfe3f7;box-shadow:0 12px 28px rgba(18,22,56,.12)}
+.examcard .k{font-size:11.5px;color:#4a4f86;font-weight:500}
+.examcard b{display:block;font-size:17px;font-weight:600;margin:2px 0;color:#121638}
+.examcard .d{font-size:12.5px;color:#3a3f74}
+.examcard .cd{margin-inline-start:auto;flex:none;min-width:74px;text-align:center;background:#121638;color:#fff;border-radius:16px;padding:9px 10px;line-height:1.2}
+.examcard .cd strong{display:block;font-size:24px;font-weight:600}
+.examcard .cd span{font-size:11px;opacity:.85}
+.exrow{display:flex;align-items:center;gap:14px;background:var(--surface);border-radius:18px;box-shadow:var(--shadow);padding:12px 14px;width:100%;text-align:start}
+.exrow .dt{flex:none;width:58px;height:62px;border-radius:15px;background:var(--app);display:grid;place-items:center;align-content:center;line-height:1.15}
+.exrow .dt strong{font-size:22px;font-weight:600;color:var(--brand)}
+.exrow .dt span{font-size:10px;color:var(--muted)}
+.exrow .mid{flex:1;min-width:0}
+.exrow h3{font-size:15px;font-weight:500}
+.exrow .sub{font-size:12px;color:var(--muted);margin-top:2px}
+.exrow .st{flex:none;font-size:11.5px;font-weight:500;padding:6px 10px;border-radius:999px;background:var(--app);color:var(--fg)}
+.exrow.next{outline:2px solid var(--brand)}
+.exrow.next .dt{background:var(--brand)}.exrow.next .dt strong,.exrow.next .dt span{color:#fff}
+.exrow.next .st{background:var(--brand);color:#fff}
+.exrow.past{opacity:.55}.exrow.past .st{background:transparent}
+.exrules{background:var(--surface);border-radius:18px;box-shadow:var(--shadow);padding:16px 18px;margin-top:6px}
+.exrules h3{font-size:14px;font-weight:600;margin-bottom:8px}
+.exrules ol{padding-inline-start:20px;display:grid;gap:6px;font-size:13px;line-height:1.6;color:var(--fg)}
+html.site .exlist{grid-template-columns:repeat(2,minmax(0,1fr))}
+html.site .exlist .exrules{grid-column:1/-1}
 .pcard{background:var(--surface);border-radius:18px;box-shadow:var(--shadow);padding:16px;display:grid;gap:12px}
 .pcard .row{display:flex;align-items:center;gap:14px}
 .pcard h3{font-size:15px;font-weight:500}
@@ -347,7 +371,7 @@ function route(h){
   if(SECTIONS[h]){S.view="amir";S.sec=h;render();return}
   const fm=h.match(/^(amir|maryam)-([A-Za-z0-9-]+)$/);
   if(fm){S.view="folder";S.sec=fm[1];S.folder=fm[2];render();return}
-  S.view=(h==="progress"||h==="add")?h:"home";S.addMsg="";render();
+  S.view=(h==="progress"||h==="add"||h==="exams")?h:"home";S.addMsg="";render();
 }
 const SECTIONS={amir:"ملازم امير مسويها",maryam:"ملازم مريم مسويتها"};
 const secName=()=>SECTIONS[S.sec]||SECTIONS.amir;
@@ -462,6 +486,38 @@ function nav(center,centerAct,centerLabel,centerCls=""){
     <button class="side${v==="progress"?" act":""}" data-go="progress" aria-label="التقدّم">${I.chart}</button>
   </div><button class="fab ${centerCls}" data-act="${centerAct}" aria-label="${centerLabel}">${center}<span class="fl">${centerLabel}</span></button></nav>`;
 }
+/* ---------- جدول امتحانات المد ---------- */
+const EXAMS_TITLE="جدول امتحانات المد",EXAMS_SUB="المرحلة الثانية · قسم علوم الحاسوب · 2026–2027";
+const EXAMS=[
+  {d:"2026-11-21",subject:"البرمجة الكيانية 1",book:"oop"},
+  {d:"2026-11-23",subject:"جرائم حزب البعث",book:"baath"},
+  {d:"2026-11-25",subject:"هياكل البيانات",book:"ds"},
+  {d:"2026-11-28",subject:"بايثون",book:"python"},
+  {d:"2026-11-30",subject:"قواعد البيانات",book:"db"},
+  {d:"2026-12-02",subject:"رياضيات",book:"math"}];
+const EXAM_TIME="10:00";
+const EXAM_RULES=["الالتزام بارتداء الزي الرسمي أثناء أداء الامتحان","على الطالب إبراز الهوية (الوصل) قبل الدخول إلى الامتحان","على الطالب الحضور قبل وقت الامتحان بنصف ساعة","الالتزام بالوقت المحدد للامتحان والمثبت على ورقة الأسئلة","يجب على الطالب الاطلاع على التعليمات الامتحانية والالتزام بها"];
+const DAYS=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],MONTHS=["كانون الثاني","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين الأول","تشرين الثاني","كانون الأول"];
+function exDate(e){const [y,m,d]=e.d.split("-").map(Number);return new Date(y,m-1,d)}
+function exDays(e){const t=new Date();t.setHours(0,0,0,0);return Math.round((exDate(e)-t)/864e5)}
+function exNextIdx(){const now=new Date();return EXAMS.findIndex(e=>{const end=exDate(e);end.setHours(13,0,0,0);return end>now})}
+function exLabel(n){return n<0?"خلص":n===0?"اليوم":n===1?"باچر":n===2?"بعد يومين":`بعد ${n} أيام`}
+function examCard(){
+  const i=exNextIdx();if(i<0)return "";const e=EXAMS[i],n=exDays(e),dt=exDate(e);
+  const cd=n<=0?`<strong>اليوم</strong><span>${EXAM_TIME}</span>`:n===1?`<strong>باچر</strong><span>${EXAM_TIME}</span>`:`<strong>${n}</strong><span>أيام باقية</span>`;
+  return `<button class="examcard" data-go="exams"><div><div class="k">الامتحان الجاي · ${i+1} من ${EXAMS.length}</div><b>${esc(e.subject)}</b><div class="d">${DAYS[dt.getDay()]} ${dt.getDate()} ${MONTHS[dt.getMonth()]} · الساعة ${EXAM_TIME}</div></div><div class="cd">${cd}</div></button>`;
+}
+function examsView(){
+  const ni=exNextIdx();
+  let h=`<div class="screen"><header class="hero" style="padding-bottom:64px"><div class="bar"><button class="burger" data-go="" aria-label="رجوع"><i></i><i></i><i></i></button><span class="avatar">${PEAR}</span></div>
+    <h1>${EXAMS_TITLE}</h1><p>${EXAMS_SUB}</p></header><div class="sheet exlist" style="display:grid;gap:12px;align-content:start">`;
+  EXAMS.forEach((e,i)=>{const dt=exDate(e),n=exDays(e),past=ni<0||i<ni,b=S.books.find(x=>x.id===e.book);
+    const st=past?"✓ خلص":i===ni&&n<=0?"اليوم":exLabel(n);
+    h+=`<button class="exrow${past?" past":""}${i===ni?" next":""}" ${b?`data-go="book-${esc(b.id)}"`:""}><span class="dt"><strong>${dt.getDate()}</strong><span>${MONTHS[dt.getMonth()]}</span></span><span class="mid"><h3>${esc(e.subject)}</h3><div class="sub">${DAYS[dt.getDay()]} · ${EXAM_TIME}${b?" · افتح الملزمة":""}</div></span><span class="st">${st}</span></button>`});
+  h+=`<div class="exrules"><h3>التعليمات الامتحانية</h3><ol>${EXAM_RULES.map(r=>`<li>${r}</li>`).join("")}</ol></div>`;
+  h+=`</div></div>`+nav(I.plus,"goAdd","ضيف ملزمة");
+  return h;
+}
 function homeView(){
   const lb=S.books.find(b=>b.id===ls("lastBook"));
   const total=S.books.reduce((n,b)=>n+(b.lectures||[]).length,0),done=S.books.reduce((n,b)=>n+doneCount(b),0);
@@ -470,7 +526,7 @@ function homeView(){
     <div class="sheet">`;
   if(S.ready&&!S.books.length&&false){h+=`<div class="empty">${IC.upload}<div>ماكو ملازم بعد. اضغط الزر الأزرق وضيف أول ملزمة.</div></div>`}
   else{
-    h+=`<div class="grid">`;
+    h+=examCard()+`<div class="grid">`;
     S.books.filter(b=>!b.section).forEach(b=>{const p=pct(b);h+=`<button class="tile" data-go="book-${esc(b.id)}"><span class="ic">${bookIcon(b)}</span><span class="lbl"><b>${esc(b.subject)}</b>${doneCount(b)}/${(b.lectures||[]).length} محاضرات</span><span class="mini"><i style="width:${p}%"></i></span></button>`});
     const sb=secBooks();
     Object.keys(SECTIONS).forEach(k=>{h+=`<button class="tile wide sec${k==="maryam"?" m":""}" data-go="${k}"><span class="ic">${IC.star}</span><span class="lbl"><b>${SECTIONS[k]}</b>${folders(k).length} فولدر · ${secBooks(k).length} ملازم</span><span class="go">${I.next}</span></button>`});
@@ -587,7 +643,7 @@ function renderSitebar(){
   const sb=$("#sitebar");if(!sb)return;const v=S.view;
   const on=k=>(k==="home"?["home","book","read"].includes(v)&&!(book()&&book().section):SECTIONS[k]?(["amir","folder"].includes(v)&&(S.sec||"amir")===k)||((v==="book"||v==="read")&&book()&&book().section===k):v===k)?" act":"";
   sb.innerHTML=`<button class="brand" data-go="" aria-label="الرئيسية"><span class="avatar">${PEAR}</span>الملازم</button>
-    <nav class="links"><button class="${on("home")}" data-go="">الرئيسية</button>${Object.keys(SECTIONS).map(k=>`<button class="${on(k)}" data-go="${k}">${SECTIONS[k]}</button>`).join("")}<button class="${on("progress")}" data-go="progress">التقدّم</button><button class="${on("add")}" data-go="add">ضيف ملزمة</button></nav>
+    <nav class="links"><button class="${on("home")}" data-go="">الرئيسية</button>${Object.keys(SECTIONS).map(k=>`<button class="${on(k)}" data-go="${k}">${SECTIONS[k]}</button>`).join("")}<button class="${on("exams")}" data-go="exams">الامتحانات</button><button class="${on("progress")}" data-go="progress">التقدّم</button><button class="${on("add")}" data-go="add">ضيف ملزمة</button></nav>
     ${IN_FRAME?"":`<button class="inst" id="instBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>ثبّت التطبيق</button>`}`;
   sb.querySelectorAll("[data-go]").forEach(el=>el.onclick=e=>{e.preventDefault();go(el.dataset.go)});
   const ib=$("#instBtn");if(ib)ib.onclick=async()=>{
@@ -601,7 +657,7 @@ function render(){
   if(document.documentElement.classList.contains("site"))renderSitebar();
   const keep={};if(S.view==="add")["f_title","f_subject","f_subjectNew"].forEach(id=>{const el=document.getElementById(id);if(el)keep[id]=el.value});
   const file=$("#f_file")&&$("#f_file").files;
-  app.innerHTML=S.view==="amir"?amirView():S.view==="folder"?folderView():S.view==="book"?bookView():S.view==="read"?readView():S.view==="progress"?progressView():S.view==="add"?addView():homeView();
+  app.innerHTML=S.view==="amir"?amirView():S.view==="folder"?folderView():S.view==="book"?bookView():S.view==="read"?readView():S.view==="progress"?progressView():S.view==="exams"?examsView():S.view==="add"?addView():homeView();
   Object.entries(keep).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.value=v});
   if(file&&file.length&&$("#f_file")){try{$("#f_file").files=file}catch(e){}}
   if(S.view==="add"&&$("#f_subject"))$("#newSubWrap").hidden=$("#f_subject").value!=="__new";
