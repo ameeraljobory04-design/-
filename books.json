@@ -1,5 +1,5 @@
 {
- "version": 7,
+ "version": 8,
  "books": [
   {
    "id": "oop",
@@ -1951,6 +1951,356 @@
      "src": "pages/mpy/33.jpg",
      "w": 1400,
      "h": 1812
+    }
+   ]
+  },
+  {
+   "id": "moop",
+   "title": "بنك أسئلة البرمجة الكيانية (C++)",
+   "subject": "البرمجة الكيانية",
+   "color": "#ff7a9c",
+   "order": 0.65,
+   "section": "maryam",
+   "folder": "oop",
+   "folderName": "البرمجة الكيانية",
+   "pages": 61,
+   "lectures": [
+    {
+     "t": "مقدمة — نمط أسئلة الدكتور والفهرس",
+     "page": 1,
+     "short": "مقدمة"
+    },
+    {
+     "t": "المستوى 1 — أسئلة متوقعة جداً",
+     "page": 7,
+     "short": "مستوى 1"
+    },
+    {
+     "t": "المستوى 2 — نمط الدكتور",
+     "page": 19,
+     "short": "مستوى 2"
+    },
+    {
+     "t": "المستوى 3 — أسئلة إضافية",
+     "page": 33,
+     "short": "مستوى 3"
+    },
+    {
+     "t": "المستوى 4 — أسئلة تحدّي",
+     "page": 47,
+     "short": "مستوى 4"
+    },
+    {
+     "t": "ليلة الامتحان — قائمة تحقّق سريعة",
+     "page": 61,
+     "short": "ليلة الامتحان"
+    }
+   ],
+   "pageImages": [
+    {
+     "src": "pages/moop/01.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/02.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/03.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/04.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/05.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/06.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/07.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/08.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/09.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/10.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/11.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/12.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/13.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/14.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/15.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/16.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/17.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/18.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/19.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/20.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/21.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/22.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/23.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/24.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/25.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/26.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/27.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/28.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/29.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/30.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/31.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/32.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/33.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/34.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/35.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/36.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/37.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/38.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/39.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/40.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/41.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/42.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/43.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/44.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/45.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/46.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/47.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/48.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/49.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/50.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/51.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/52.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/53.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/54.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/55.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/56.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/57.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/58.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/59.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/60.jpg",
+     "w": 1400,
+     "h": 1982
+    },
+    {
+     "src": "pages/moop/61.jpg",
+     "w": 1400,
+     "h": 1982
     }
    ]
   }
